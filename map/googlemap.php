@@ -1,23 +1,84 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <title>Marker Animations</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWH-XTux9pCrmqDoV6YM63Ex8FPrAQNLU&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 80%; width:90%;
+      }
 
-<h1>My First Google Map</h1>
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      // The following example creates a marker in Stockholm, Sweden using a DROP
+      // animation. Clicking on the marker will toggle the animation between a BOUNCE
+      // animation and no animation.
+      let marker;
 
-<div id="map" style="width:90%;height:800px;"></div>
+      function initMap() {
+      	let myCenter = new google.maps.LatLng(6.9340,79.8613);
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 13,
+          center: { lat: 6.9271, lng: 79.8612 },
+        });
+        marker = new google.maps.Marker({
+          map,
+          title: "Uluru (Ayers Rock)",
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: { lat: 6.9271, lng: 79.8612  },
+        });
 
-<script>
-function myMap() {
-	let myCenter = new google.maps.LatLng(6.9271,79.8612);
-	let mapCanvas = document.getElementById("map");
-	let mapOptions = {center: myCenter, zoom: 10};
-	let map = new google.maps.Map(mapCanvas, mapOptions);
-	let marker = new google.maps.Marker({position:myCenter});
-	marker.setMap(map);
-}
-</script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWH-XTux9pCrmqDoV6YM63Ex8FPrAQNLU&callback=myMap"></script>
 
-</body>
+      
+
+    
+        
+       // Create the initial InfoWindow.
+        let infoWindow = new google.maps.InfoWindow({
+          content: "Select your location",
+          position: myCenter,
+
+        });
+
+        infoWindow.open(map);
+        // Configure the click listener.
+        marker.addListener("click", (mapsMouseEvent) => {
+          // Close the current InfoWindow.
+          infoWindow.close();
+          // Create a new InfoWindow.
+          infoWindow = new google.maps.InfoWindow({
+            position: mapsMouseEvent.latLng,
+            
+          });
+          infoWindow.setContent(
+           
+           
+            '<form action="add.php" method="post" enctype="multipart/form-data"> <table border="0"> <tr> <th> Crop Type:</th> <td> <input type="text" name="ctype"> </td> <br> <tr> <th> Quantity: </th> <td> <input type="text" name="qunt"> </td> </tr> <br> <tr> <th> Description: </th> <td> <input type="text" name="desc"> </td> </tr> <br> <tr> <th> Latitude: </th> <td> <input type="text" disabled value="'+ mapsMouseEvent.latLng.lat() +'" </td> </tr> <br><br> <tr> <th> Longitude: </th> <td> <input type="text" disabled value="'+ mapsMouseEvent.latLng.lng() + '" </td> </tr> <br>  <tr> <th> <label for="myfile">Select Photos:</label> </th>  <br> <th> <input type="file" name="image"> </tr> </th>  <br>  <tr> <td><input type="submit"> </td> </tr></form> '
+          );
+          infoWindow.open(map);
+        });
+      }
+
+// JSON.stringify(mapsMouseEvent.latLng.toJSON())
+
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
 </html>
