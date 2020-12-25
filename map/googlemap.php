@@ -29,17 +29,17 @@
       let marker;
 
       function initMap() {
-      	let myCenter = new google.maps.LatLng(6.9340,79.8613);
+      	let myCenter = new google.maps.LatLng(7.297581160793088,80.63318501586913);
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 13,
-          center: { lat: 6.9271, lng: 79.8612 },
+          center: { lat: 7.2906, lng: 80.6337 },
         });
         marker = new google.maps.Marker({
           map,
-          title: "Uluru (Ayers Rock)",
+          title: "Select Your Location",
           draggable: true,
           animation: google.maps.Animation.DROP,
-          position: { lat: 6.9271, lng: 79.8612  },
+          position: { lat: 7.2906, lng: 80.6337 },
         });
 
 
