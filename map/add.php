@@ -13,7 +13,8 @@ if (!$conn) {
 }
 echo "Connected successfully";
 
-$croptype = $_POST["ctype"];
+$cropname = $_POST["cropnme"];
+$croptype = $_POST["cropt"];
 $quantity = $_POST["qunt"];
 $descrip = $_POST["desc"];
 $latitude = $_POST["lati"];
@@ -23,6 +24,6 @@ $temp_name=$_FILES['image']['tmp_name'];
 $path = "images/";
 move_uploaded_file($temp_name,$path.$img);
 
-echo "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>";
+echo "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>";
 
 ?>
