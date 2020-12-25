@@ -1,17 +1,17 @@
 <?php
-$host ="localhost";
-$user="root";
-$password="";
-$db="map";
+$servername = "remotemysql.com";
+$username = "dD4aW06XoB";
+$password = "vs5A4WwSFr";
+$dbname = "dD4aW06XoB";
 
-$con = mysqli_connect($host,$user,$password,$db);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if(!$con)
-{
-	die("Db error");
-	return 0;
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
-echo "<br> Connected!";
+echo "Connected successfully";
 
 $croptype = $_POST["ctype"];
 $quantity = $_POST["qunt"];
