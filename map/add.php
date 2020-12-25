@@ -18,9 +18,10 @@ $quantity = $_POST["qunt"];
 $descrip = $_POST["desc"];
 $latitude = $_POST["lati"];
 $longitude = $_POST["longi"];
-$img= $_FILES['image']["name"];
-$temp_name= $_FILES['image']["tmp_name"];
-$path = move_uploaded_file($temp_name, destination:"C:/xampp/htdocs/dashboard/map/img/". $img);
+$img=$_FILES['image']['name'];
+$temp_name=$_FILES['image']['tmp_name'];
+$path = "images/";
+move_uploaded_file($temp_name,$path.$img);
 
 echo "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>";
 
