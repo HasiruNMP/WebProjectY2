@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head><link rel="stylesheet" href="design.css"></head>
+
+<body>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+
+<script>
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyCf1uOnVLkQ63FG_F444I3gsl478jrRLcw",
+        authDomain: "hnmp-fb-tests.firebaseapp.com",
+        databaseURL: "https://hnmp-fb-tests-default-rtdb.firebaseio.com",
+        projectId: "hnmp-fb-tests",
+        storageBucket: "hnmp-fb-tests.appspot.com",
+        messagingSenderId: "431004425361",
+        appId: "1:431004425361:web:bd8431f729221fc7c17330",
+        measurementId: "G-2BZE6MTDDY"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    function sendmsg(){
+        firebase.database().ref("chat").set({
+            msg: document.getElementById("smsg").value
+            })
+            showmsg()
+        document.getElementById("smsg").value = "";
+    };
+
+    function showmsg(){
+    const chat = firebase.database().ref('chat');
+    chat.on('value', snap => document.getElementById("dmsg").innerHTML= snap.val()['msg']);
+    };
+
+
+</script>
+
+<div style="text-align: center; padding: 10%;">
+
+<div>
+    <p id="dmsg"><script>showmsg()</script></p>
+</div>
+
+
+<div>
+    <input type="text" id="smsg" placeholder="Type Here"><br><br>
+    <button onclick="sendmsg()">Send</button>
+</div>
+</div>
+
+</html>
