@@ -55,6 +55,3 @@ $query="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, 
 
 
 
-
-
-?>
