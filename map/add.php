@@ -16,6 +16,8 @@ if(mysqli_connect_errno())
 
 
 
+
+
 $firstname = $_POST["fname"];
 $lastname = $_POST["lname"];
 $email = $_POST["email"];
@@ -37,7 +39,7 @@ if(isset($_REQUEST["submit"]))
 {
 
 
-$query="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, lat, longt, description) VALUES ('email', 'firstname', 'lastname', 'cropname', '$croptype', 'img', '5.55', '4.6464', 'descrip');";
+$query="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, lat, longt, description) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$img', '$latitude', '$longitude', '$descrip');";
 }
 
  if($conn->query($query))
@@ -46,6 +48,12 @@ $query="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, 
  }
  else
  	echo "error";
+
+
+
+?>
+
+
 
 
 
