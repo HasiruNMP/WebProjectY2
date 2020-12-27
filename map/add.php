@@ -1,19 +1,30 @@
 <?php
-$servername = "remotemysql.com";
-$username = "dD4aW06XoB";
-$password = "vs5A4WwSFr";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "dD4aW06XoB";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if(mysqli_connect_errno())
+if(!$conn)
 {
-	echo mysqli_connect_errno();
-	die();
+	 echo "Server Not connected";
+}
+else
+{
+	echo "Server connected";
 }
 
+if(!mysqli_select_db($conn,$dbname))
+{
+	echo "Database Not Selected";
+}
 
+else
+{
+	echo "Database Selected";
+}
 
 
 
@@ -39,15 +50,15 @@ if(isset($_REQUEST["submit"]))
 {
 
 
-$query="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, lat, longt, description) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$img', '$latitude', '$longitude', '$descrip');";
+$sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, lat, longt, description) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$img', '$latitude', '$longitude', '$descrip');";
 }
 
- if($conn->query($query))
+ if(!mysqli_query($conn,$sql))
  {
- 	echo "<h1><center>Your order has been sucessfully recorded !</center></h1>";
+ 	echo "Not Inserted";
  }
  else
- 	echo "error";
+ 	echo "Inserted";
 
 
 
