@@ -47,7 +47,7 @@
       // The following example creates a marker in Stockholm, Sweden using a DROP
       // animation. Clicking on the marker will toggle the animation between a BOUNCE
       // animation and no animation.
-    function initMap() {
+    function initMap(rlan,rlng) {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 10,
     center: {
@@ -59,23 +59,20 @@
 
 
 
- google.maps.event.addDomListener(document.getElementById('submit'), 'click', function(evt) {
+  //google.maps.event.addDomListener(document.getElementById(rid), 'click', function(evt) {
     var marker = new google.maps.Marker({
       position: {
-        lat: parseFloat(document.getElementById('lat').value),
-        lng: parseFloat(document.getElementById('lng').value)
+        lat: parseFloat(rlan),
+        lng: parseFloat(rlng)
       },
       map: map
     });
-  });
+  //});
+    marker.setMap(map);
+
 
 google.maps.event.addDomListener(window, 'load', initMap);
-
-  
-
-  
-
-            
+          
        
 }
 
@@ -144,8 +141,13 @@ while($row = mysqli_fetch_array($result)) {
 
 
 <tr>
-    <td><?php echo $row["report_id"]; ?> <br>
-  		 <u><b id="submit"><?php echo $row["crop_name"]; ?> </b></u><br>
+    <td id="<?php echo $row["report_id"]; ?>" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">
+    <?php echo $row["report_id"]; ?> <br>
+  		 <u>
+       <b >
+       <?php echo $row["crop_name"]; ?> 
+       </b>
+       </u><br>
   		 <?php echo $row["crop_type"]; ?> <br>
   		 <?php echo $row["description"]; ?> <br>
    		 <?php echo $row["fname"]; ?>
