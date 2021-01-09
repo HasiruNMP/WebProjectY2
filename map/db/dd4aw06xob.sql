@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2021 at 10:00 AM
+-- Generation Time: Jan 09, 2021 at 01:59 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -31,15 +31,26 @@ CREATE TABLE `farmers` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `fname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `lname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` text COLLATE utf8_unicode_ci NOT NULL,
   `adline1` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `adline2` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `province` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `nic` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `password` text COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `imgpath` varchar(10) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `farmers`
+--
+
+INSERT INTO `farmers` (`email`, `fname`, `lname`, `gender`, `adline1`, `adline2`, `city`, `province`, `nic`, `password`, `phone`, `imgpath`) VALUES
+('10707181@students.plymouth.ac.uk', 'dileka', 'Dilshan', 'female', 'No 21, Wajirapura', '', 'Nuwara Eliya', 'Central Provunce', '46546465', '45', '0766807668', 'Free-Msi-P'),
+('abc@gmail.com', 'madawa', 'saman', 'male', 'no 43', 'shanthipura', 'Nuwara Eliya', 'Central Provunce', '343423432', '1234', '0766807668', 'Msi-HD-Bac'),
+('gg@gmail.com', 'Rakshitha', 'Dilshan', 'male', 'No 21, Wajirapura', '', 'Nuwara Eliya', 'Central Provunce', '46546465', '123', '0766807668', 'Bvhd8NXUTN'),
+('rakshithadilshan1@gmail.com', 'dileka', 'Dilshan', 'male', 'No 21, Wajirapura', '', 'Nuwara Eliya', 'Central Provunce', '46546465', '456', '0766807668', 'Free-Msi-P');
 
 -- --------------------------------------------------------
 
@@ -87,7 +98,8 @@ CREATE TABLE `reports` (
 
 INSERT INTO `reports` (`report_id`, `email`, `fname`, `lname`, `crop_name`, `crop_type`, `photos`, `lat`, `longt`, `description`) VALUES
 (2, 'gg@gmail.com', 'pasindu', 'Dilshan', 'karote', 'FoodCrops', 'Free-Msi-Photo-Download.jpg', 7.29332, 80.7491, 'hondar3'),
-(4, 'rakshithadilshan1@gmail.com', 'Rakshitha', 'Dilshan', 'Potatoes', 'FoodCrops', 'msi-12.jpg', 7.2906, 80.6337, 'honder 200');
+(4, 'rakshithadilshan1@gmail.com', 'Rakshitha', 'Dilshan', 'Potatoes', 'FoodCrops', 'msi-12.jpg', 7.2906, 80.6337, 'honder 200'),
+(5, 'rakshithadilshan1@gmail.com', 'Rakshitha', 'Dilshan', '', '', '', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -147,7 +159,7 @@ ALTER TABLE `myguests`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
