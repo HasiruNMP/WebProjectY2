@@ -133,11 +133,6 @@ while($row = mysqli_fetch_array($result)) {
 ?>
 </table>
 
-<br>
-<br>
-<br>
-<br>
-<br>
  <?php
 }
 else{
