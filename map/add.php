@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Report</title>
+    <title>Adding Report Details</title>
 
   </head>
  <body> 
  	<script>
-function deleteFunction() {
-      var r=confirm("Do you want to delete your report?");
-    if (r)
-    {
-        //write redirection code
-        window.location = "report update delete.php";
-    }
-    else
-   {
-        
-    }
-}
+
 </script>
 
 <?php
@@ -98,25 +87,11 @@ $sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photo1, ph
 
 
 ?>
+<br>
+<button onclick="window.location.href='Report View,Update,Delete.php';">
+      View Report Details
+    </button>
 
-
-
-<form action="View my report.php" method="post" >
-<input type="text" id="eml" name="eml"  >
-<input type="submit" name="submit" value="View My Report"> 
-</form>
-
-
-<form action="update my report.php" method="post" >
-<input id="eml" name="eml"  type="text">
-<input type="submit" name="submit" value="Update My Report"> 
-</form>
-
-<form action="delete my report.php" method="post" >
-<input type="text" id="eml" name="eml">
-<input type="submit" name="delete" value="Delete My Report" onclick="deleteFunction()"> 
-
-</form>
 
 
 

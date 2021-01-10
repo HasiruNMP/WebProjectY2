@@ -94,6 +94,7 @@ $row = mysqli_fetch_array($result);
     	<input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
     	<input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
 
+      
 
   </table>
 </div>

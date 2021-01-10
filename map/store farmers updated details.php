@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adding Updated Details</title>
+</head>
+<body>
+
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -77,3 +85,13 @@ $sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$la
 
 
 ?>
+
+<br>
+<button onclick="window.location.href='Report View,Update,Delete.php';">
+      View Report Details
+    </button>
+
+
+
+</body>
+</html>
