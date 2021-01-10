@@ -60,7 +60,7 @@
 
 
 
-  //google.maps.event.addDomListener(document.getElementById(rid), 'click', function(evt) {
+  //google.maps.event.addDomListener(document.getElementById('report'), 'click', function(evt) {
     var marker = new google.maps.Marker({
 
       position: {
@@ -70,7 +70,7 @@
       map: map
     });
   //});
-    marker.setMap(map);
+    //marker.setMap(map);
 
 
 google.maps.event.addDomListener(window, 'load', initMap);
@@ -150,6 +150,24 @@ while($row = mysqli_fetch_array($result)) {
     		<td><img class="reportphoto" src="images\<?php echo $row["photo3"]; ?>"></td></tr>
 
 
+<<<<<<< Updated upstream
+=======
+<tr>
+    <td id="report" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">
+    <?php echo $row["report_id"]; ?> <br>
+  		 <u>
+       <b >
+       <?php echo $row["crop_name"]; ?> 
+       </b>
+       </u><br>
+  		 <?php echo $row["crop_type"]; ?> <br>
+  		 <?php echo $row["description"]; ?> <br>
+   		 <?php echo $row["fname"]; ?>
+    	<?php echo $row["lname"]; ?> <br>
+    	<?php echo $row["email"]; ?><br>
+    	<img id="reportphoto" src="images\<?php echo $row["photos"]; ?>">
+
+>>>>>>> Stashed changes
     	<input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
     	<input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
     	
