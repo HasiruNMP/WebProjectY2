@@ -111,7 +111,7 @@ $result = mysqli_query($conn,"SELECT * FROM reports");
 if (mysqli_num_rows($result) > 0) {
 ?>
   <table border="1">
-  <tr><th> Report ID </th><th> Crop Name </th><th> Crop Type </th><th> Description </th>	<th> Name </th>	<th> Email</th><th> Location</th><th> Photo</th></tr>	
+  <tr><th> Report ID </th><th> Crop Name </th><th> Crop Type </th><th> Description </th>	<th> Name </th>	<th> Email</th><th> Location</th><th> Photo1 </th><th> Photo3 </th><th> Photo1 </th></tr>	
 <?php
 
 while($row = mysqli_fetch_array($result)) {
@@ -121,7 +121,9 @@ while($row = mysqli_fetch_array($result)) {
     		<tr><td ><?php echo $row["report_id"]; ?> </td><td><b id="submit"><?php echo $row["crop_name"]; ?> </b></td> <td><?php echo $row["crop_type"]; ?></td>
   			<td><?php echo $row["description"]; ?> </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td>
     		<td><?php echo $row["email"]; ?></td><td><?php echo $row["lat"]; ?> <?php echo $row["longt"]; ?></td>
-    		<td><img id="reportphoto" src="images\<?php echo $row["photos"]; ?>"></td></tr>
+    		<td><img id="reportphoto1" src="images\<?php echo $row["photo1"]; ?>"></td>
+        <td><img id="reportphoto2" src="images\<?php echo $row["photo2"]; ?>"></td>
+        <td><img id="reportphoto3" src="images\<?php echo $row["photo3"]; ?>"></td></tr>
 
 
   			

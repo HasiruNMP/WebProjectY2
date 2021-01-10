@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2021 at 01:59 PM
+-- Generation Time: Jan 10, 2021 at 07:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -86,7 +86,9 @@ CREATE TABLE `reports` (
   `lname` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `crop_name` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `crop_type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `photos` text COLLATE utf8_unicode_ci NOT NULL,
+  `photo1` text COLLATE utf8_unicode_ci NOT NULL,
+  `photo2` text COLLATE utf8_unicode_ci NOT NULL,
+  `photo3` text COLLATE utf8_unicode_ci NOT NULL,
   `lat` float NOT NULL,
   `longt` float NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL
@@ -96,10 +98,11 @@ CREATE TABLE `reports` (
 -- Dumping data for table `reports`
 --
 
-INSERT INTO `reports` (`report_id`, `email`, `fname`, `lname`, `crop_name`, `crop_type`, `photos`, `lat`, `longt`, `description`) VALUES
-(2, 'gg@gmail.com', 'pasindu', 'Dilshan', 'karote', 'FoodCrops', 'Free-Msi-Photo-Download.jpg', 7.29332, 80.7491, 'hondar3'),
-(4, 'rakshithadilshan1@gmail.com', 'Rakshitha', 'Dilshan', 'Potatoes', 'FoodCrops', 'msi-12.jpg', 7.2906, 80.6337, 'honder 200'),
-(5, 'rakshithadilshan1@gmail.com', 'Rakshitha', 'Dilshan', '', '', '', 0, 0, '');
+INSERT INTO `reports` (`report_id`, `email`, `fname`, `lname`, `crop_name`, `crop_type`, `photo1`, `photo2`, `photo3`, `lat`, `longt`, `description`) VALUES
+(1, 'rakshithadilshan1@gmail.com', 'Rakshitha', 'Dilshan', 'Potatoes', 'FoodCrops', 'When-to-Harvest-Potatoes-Everything-You-Need-to-Know-to-Get-it-Right-FI.jpg', 'shutterstock_1141480919.jpg', 'harvest-potatoes.jpg', 7.28719, 80.5068, 'Fresh potatoes'),
+(2, 'dinushalakmal1@gmail.com', 'Dinusha', 'Lakmal', 'Carrots', 'FoodCrops', 'Carrots.jfif', 'karote111.jpg', 'karotte.jpg', 7.2906, 80.6337, 'Fresh Carrots'),
+(3, 'madawasaman1@gmail.com', 'Madawa ', 'Saman', 'Beetroot', 'FoodCrops', 'beet1111.jpg', 'beetroot2.jpg', 'beets jpg.jpg', 7.27834, 80.8256, 'Fresh Beetroots'),
+(4, 'sadeepdamidu1@gmail.com', 'Sadeep ', 'Damindu', 'Leeks', 'FoodCrops', 'fall-harvest-of-leeks.jpg', 'Leeks-Harvested-Fresh.jpg', 'wiscombe4_xlg.jpg', 7.06987, 80.6807, 'Fresh Leeks');
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,7 @@ ALTER TABLE `myguests`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

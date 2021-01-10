@@ -38,19 +38,30 @@ $quantity = $_POST["qunt"];
 $descrip = $_POST["desc"];
 $latitude = $_POST["lati"];
 $longitude = $_POST["longi"];
+//photo1
 $img=$_FILES['image']['name'];
 $temp_name=$_FILES['image']['tmp_name'];
 $path = "images/";
 move_uploaded_file($temp_name,$path.$img);
+//photo2
+$img2=$_FILES['image2']['name'];
+$temp_name=$_FILES['image2']['tmp_name'];
+$path = "images/";
+move_uploaded_file($temp_name,$path.$img2);
+//photo3
+$img3=$_FILES['image3']['name'];
+$temp_name=$_FILES['image3']['tmp_name'];
+$path = "images/";
+move_uploaded_file($temp_name,$path.$img3);
 
-echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>";
+echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>" . "<br>". $img2 . "<br>" . "<br>". $img3 . "<br>";
 
 
 if(isset($_REQUEST["submit"]))
 {
 
 
-$sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photos, lat, longt, description) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$img', '$latitude', '$longitude', '$descrip');";
+$sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, photo1, photo2, photo3, lat, longt, description) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$img', '$img2', '$img3','$latitude', '$longitude', '$descrip');";
 }
 
  if(!mysqli_query($conn,$sql))
