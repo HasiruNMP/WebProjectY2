@@ -83,15 +83,9 @@ google.maps.event.addDomListener(window, 'load', initMap);
           
        
 }
-
-
-
-
-
     </script>
-  </head>
-  <body>
-  <nav class="grey darken-3">
+
+<nav class="grey darken-3">
         <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="sass.html">Reports</a></li>
@@ -103,7 +97,12 @@ google.maps.event.addDomListener(window, 'load', initMap);
         </ul>
         </div>
         </nav>
-  	
+  </head>
+
+
+
+
+  <body>
 
     <div id ="leftpanel"> 
 
@@ -161,7 +160,7 @@ while($row = mysqli_fetch_array($result)) {
         </div>
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
-          <a href="#">Message</a>
+          <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?>', '<?php echo $row['lname']; ?>' )">Message</a>
           <a id="expand" href="#modal1">Expand</a>
         </div>
       </div>
@@ -171,49 +170,7 @@ while($row = mysqli_fetch_array($result)) {
 <input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
 <input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-        <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-    </div>
-  
-  </div>
-
-
-
-  <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-    
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("modal-close")[0];
-    
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-</script>
 
 
 
@@ -235,8 +192,47 @@ else{
 
 <div id="map"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+<script>
+  function gotoChat(email, fname, lname){
+    var semail=email;
+    var sname=fname;
+    var queryString = "?" + semail + "&" + sname;
+    window.location.href = '../dm/staff.html' + queryString;
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
 
