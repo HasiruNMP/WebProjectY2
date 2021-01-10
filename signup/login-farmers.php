@@ -7,14 +7,14 @@
 </head>
 <body>
 
-    <form id="login-form" method="post" action="#" ><center>
+    <form id="login-form" method="post" action="#" >
         <img src="../images/logo1.png" class="avatar">
         <p id="l1">Cultivation Report Platform</p>
         <table>
 
             <tr>
                 <td><p align="left" id="sid">Email</p>
-                    <input type="text" name="studentid" id="user_id" placeholder="                Email"></td>
+                    <input type="text" name="email" id="user_id" placeholder="                Email"></td>
 
             </tr>
 
@@ -41,7 +41,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "nsbmtshirts";
+$dbname = "dd4aw06xob";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -51,41 +51,39 @@ if ($conn->connect_error)
 }
 //echo "Connected successfully";
 
-if (isset($_POST["studentid"]) AND isset($_POST["password"])) {
-$stuid= $_POST['studentid'];
+if (isset($_POST["email"]) AND isset($_POST["password"])) {
+$email= $_POST['email'];
 $password= $_POST['password'];
 
-$sql = "SELECT * FROM `students` WHERE `stuid` = '$stuid' AND `password` = '$password';";
+$sql = "SELECT `email`, `password` FROM `farmers` WHERE `email` = '$email' AND `password` = '$password';";
 //echo $sql;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 // output data of each row
 $row = $result->fetch_assoc();
-//echo $row['stuid'];
+//echo $row['email'];
 //echo $row['password'];
-$stuid2 = $row['stuid'];
-$password2 = $row['password'];
+$ses_email = $row['email'];
+$ses_password = $row['password'];
 }
 
-//echo $stuid2;
-//echo $password2;
+//echo $ses_email;
+//echo $ses_password;
 
-if ($stuid = $stuid2 && $pass = $password2)
+if ($email = $ses_email && $password = $ses_password)
 {
-   $_SESSION['stuid'] = $stuid2;
-   $_SESSION['password'] = $password2;
-
+   $_SESSION['email'] = $ses_email;
+   $_SESSION['password'] = $ses_password;
    echo 'You have entered valid username and password';
    header("Location: ../index.php");
 }
 else
 {
-   echo '<script type="text/javascript">alert("You have entered an invalid username and/or password");</script>';
+   echo '<script type="text/javascript">alert("You have entered an invalid username or password");</script>';
 }
 }
 ?>
-</center>
 
 </body>
 </html>

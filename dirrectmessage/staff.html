@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <title>Messages</title>
-    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
     <script>  
@@ -27,20 +30,26 @@
 
 <body>
 
-<div id="chat-container" class="d">
+<div class="container">
 
-    <div id="chat-top">
-        <p id="sender">sender</p>
-        <button type="button" onclick="">test</button>
+    <div class="row">
+        <div class="row green">
+            <p id="sender">Sender</p>
+        </div>
+        <div class="row grey lighten-3" id="chat-main">
+        </div>
+        <div class="row center grey lighten-4">
+            <div class="col s8">
+                <input type="text" id="typedmessage" name="typedmessage">
+            </div>
+            <div class="col s2 ">
+                <button onclick="sendmessage()" class="btn waves-effect waves-light">Send<i class="material-icons right">send</i></button>
+            </div>
+        </div>
     </div>
-    <div id="chat-main">
-    </div>
-    <div id="chat-type">
-        <input type="text" id="typedmessage" name="typedmessage">
-    </div>
-    <div id="chat-send">
-        <button type="button" onclick="sendmessage()">Send Message</button>
-    </div>
+
+
+
 
 </div>
 
@@ -70,5 +79,6 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
