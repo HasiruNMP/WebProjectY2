@@ -18,7 +18,7 @@ function mcountListener(countCheck,email){
         var mcount = doc.data().messageCount;
         //console.log("updated")
         if(countCheck != mcount){
-            newmessage(mcount)
+            newmessage(mcount,email)
         }
         //console.log(mcount)
     });
@@ -83,7 +83,7 @@ function sendmessage(email){
     });      
 }
 
-function newmessage(mcount){
+function newmessage(mcount,email){
 
     const chat_main = document.getElementById('chat-main')
 

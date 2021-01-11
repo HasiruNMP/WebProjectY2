@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src= 
+        "https://code.jquery.com/jquery-2.1.1.min.js"> 
+    </script> 
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWH-XTux9pCrmqDoV6YM63Ex8FPrAQNLU&callback=initMap&libraries=&v=weekly"
       defer
@@ -23,9 +26,7 @@
         
       }
 
-      .modal{
-        z-index: 5;
-      }
+
 
       #leftpanel{
         height:100%;
@@ -161,7 +162,7 @@ while($row = mysqli_fetch_array($result)) {
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
           <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
-          <a id="expand" href="#modal1">Expand</a>
+          <a id="expand" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
         </div>
       </div>
     </div>
@@ -169,11 +170,6 @@ while($row = mysqli_fetch_array($result)) {
 
 <input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
 <input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
-
-
-
-
-
 
 
 
@@ -193,44 +189,52 @@ else{
 <div id="map"></div>
 
 
-<script>
-  function gotoChat(email,name){
-    var semail=email;
-    var sname=name;
-    var queryString = "?" + semail + "&" + sname;
-    window.location.href = '../dm/staff.html' + queryString;
-  }
-
-</script>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn  
+            green darken-1 modal-trigger"  
+            href="#demo-modal"> 
+            Click Here! 
+        </a> 
+  
+        <!-- Modal Structure -->
+        <div id="demo-modal" class="modal"> 
+            <div class="modal-content"> 
+                <h4>Demo of Simple Modal</h4> 
+                <p> 
+                <div class="red-text"> 
+                    Content of the modal goes here. <br> 
+                    Type information here. <br> 
+                </div> 
+                C is a procedural programming language. 
+                It was initially developed by Dennis  
+                Ritchie as a system programming language  
+                to write operating system. The main  
+                features of C language include low-level 
+                access to memory, simple set of keywords, 
+                and clean style, these features make C  
+                language suitable for system programming  
+                like operating system or compiler development. 
+                </p> 
+            </div> 
+  
+            <div class="modal-footer"> 
+                <a href="#!" class="modal-action  
+                    modal-close waves-effect waves-green  
+                    btn green lighten-1"> 
+                    Close 
+                </a> 
+            </div> 
+        </div> 
+    </div> 
+    <script> 
+        $(document).ready(function () { 
+            $('.modal').modal(); 
+        } 
+        ) 
+    </script> 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

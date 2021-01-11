@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <script type="text/javascript" src= 
+        "https://code.jquery.com/jquery-2.1.1.min.js"> 
+    </script> 
+</head>
+<body>
+
+  <!-- Modal Trigger -->
+  <button id="myBtn">Open Modal</button>
+
+  <!-- onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?>', '<?php echo $row['lname']; ?>' )" -->
+
+
+
+
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn  
+            green darken-1 modal-trigger"  
+            href="#demo-modal"> 
+            Click Here! 
+        </a> 
+  
+        <!-- Modal Structure -->
+        <div id="demo-modal" class="modal"> 
+            <div class="modal-content"> 
+                <h4>Demo of Simple Modal</h4> 
+                <p> 
+                <div class="red-text"> 
+                    Content of the modal goes here. <br> 
+                    Type information here. <br> 
+                </div> 
+                C is a procedural programming language. 
+                It was initially developed by Dennis  
+                Ritchie as a system programming language  
+                to write operating system. The main  
+                features of C language include low-level 
+                access to memory, simple set of keywords, 
+                and clean style, these features make C  
+                language suitable for system programming  
+                like operating system or compiler development. 
+                </p> 
+            </div> 
+  
+            <div class="modal-footer"> 
+                <a href="#!" class="modal-action  
+                    modal-close waves-effect waves-green  
+                    btn green lighten-1"> 
+                    Close 
+                </a> 
+            </div> 
+        </div> 
+    </div> 
+    <script> 
+        $(document).ready(function () { 
+            $('.modal').modal(); 
+        } 
+        ) 
+    </script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
+</body>
+</html>
+<!-- <tr><td id="<?php echo $row["report_id"]; ?>" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)"><?php echo $row["report_id"]; ?> </td><td><b id="submit"><?php echo $row["crop_name"]; ?> </b></td> <td><?php echo $row["crop_type"]; ?></td>
+<td><?php echo $row["description"]; ?> </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td>
+<td><?php echo $row["email"]; ?></td><td><?php echo $row["lat"]; ?>,<?php echo $row["longt"]; ?></td>
+<td><img class="reportphoto" src="images\<?php echo $row["photo1"]; ?>"></td>
+<td><img class="reportphoto" src="images\<?php echo $row["photo2"]; ?>"></td>
+<td><img class="reportphoto" src="images\<?php echo $row["photo3"]; ?>"></td></tr>
+
+<table border="1">
+  	<tr><th> Report ID </th><th> Crop Name </th><th> Crop Type </th><th> Description </th>	<th> Name </th>	<th> Email</th><th> Location</th><th> Photo1</th><th> Photo2</th><th> Photo3</th></tr>	
+
+-->
