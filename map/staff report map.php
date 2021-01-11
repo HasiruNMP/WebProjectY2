@@ -26,8 +26,6 @@
         
       }
 
-
-
       #leftpanel{
         height:100%;
         width:30%;
