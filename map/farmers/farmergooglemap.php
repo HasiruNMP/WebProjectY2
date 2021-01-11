@@ -7,11 +7,14 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWH-XTux9pCrmqDoV6YM63Ex8FPrAQNLU&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style type="text/css">
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 80%; width:90%;
+        height: 100%; width:100%;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -78,8 +81,21 @@
 // JSON.stringify(mapsMouseEvent.latLng.toJSON())
 
     </script>
+    <nav class="grey darken-3">
+        <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="sass.html">My Reports</a></li>
+            <li><a href="badges.html">Messages</a></li>
+            <li><a href="badges.html">Graphs</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="waves-effect waves-light btn">Log Out<i class="material-icons  right">account_circle</i></a></li>
+        </ul>
+        </div>
+        </nav>
   </head>
   <body>
     <div id="map"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>

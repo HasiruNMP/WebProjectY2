@@ -2,12 +2,23 @@
 <html>
   <head>
     <title>Adding Report Details</title>
-
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
  <body> 
- 	<script>
-
-</script>
+ <nav class="grey darken-3">
+    <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="sass.html">My Reports</a></li>
+            <li><a href="badges.html">Messages</a></li>
+            <li><a href="badges.html">Graphs</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="waves-effect waves-light btn">Log Out<i class="material-icons  right">account_circle</i></a></li>
+        </ul>
+    </div>
+</nav>
 
 <?php
 $servername = "localhost";
@@ -67,7 +78,7 @@ $temp_name=$_FILES['image3']['tmp_name'];
 $path = "images/";
 move_uploaded_file($temp_name,$path.$img3);
 
-echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>" . "<br>". $img2 . "<br>" . "<br>". $img3 . "<br>";
+//echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>" . "<br>". $img2 . "<br>" . "<br>". $img3 . "<br>";
 
 
 if(isset($_REQUEST["submit"]))
@@ -82,19 +93,17 @@ $sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, quantity, 
  	echo "Not Inserted";
  }
  else
- 	echo "Record Inserted Successfully!";
+ 	echo "<div class='container'><h4 class='center-align'>Report Added Succesfully</h4></div>";
 
 
 
 ?>
-<br>
-<button onclick="window.location.href='Report View,Update,Delete.php';">
-      View Report Details
-    </button>
 
 
 
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
 
