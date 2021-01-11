@@ -136,7 +136,6 @@ else
 	echo "Database Selected";
 }
 
-
 ?>
 
 <?php
@@ -147,7 +146,11 @@ if (mysqli_num_rows($result) > 0) {
 
   
 <?php
+
 while($row = mysqli_fetch_array($result)) {
+
+
+
 ?>
   <div class="row">
     <div class="col s12">
@@ -162,7 +165,8 @@ while($row = mysqli_fetch_array($result)) {
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
           <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
-          <a id="expand" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
+          <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
+
         </div>
       </div>
     </div>
@@ -183,6 +187,7 @@ while($row = mysqli_fetch_array($result)) {
 else{
     echo "No result found";
 }
+
 ?>
 </div>
 
@@ -202,92 +207,24 @@ else{
         <!-- Modal Structure -->
         <div id="demo-modal" class="modal modal-fixed-footer"> 
             <div class="modal-content"> 
-                <h4>Demo of Simple Modal</h4> 
-                <p> 
-                <div class="red-text"> 
-                    Content of the modal goes here. <br> 
-                    Type information here. <br> 
-                </div> 
+                
                     <div> 
 
-                        
                     <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "dD4aW06XoB";
-
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-                    if(!$conn)
-                    {
-                    echo "Server Not connected";
-                    }
-                    else
-                    {
-                    echo "Server connected";
-                    }
-
-                    if(!mysqli_select_db($conn,$dbname))
-                    {
-                    echo "Database Not Selected";
-                    }
-
-                    else
-                    {
-                    echo "Database Selected";
-                    }
-
-
-                    ?>
-
-                    <?php
-                    $result = mysqli_query($conn,"SELECT * FROM reports");
+                    $result = mysqli_query($conn,"SELECT * FROM reports WHERE report_id = 1");
                     if (mysqli_num_rows($result) > 0) {
                     ?>
-
-
-
                     <?php
                     while($row = mysqli_fetch_array($result)) {
                     ?>
-                    <div class="row">
-                    <div class="col s12">
-                    <div class="card blue-grey darken-1">
-                      <div class="card-content white-text">
-                        <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
-                        <p>Quality: <?php echo $row["quality"]; ?></p>
-                        <p><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> | <?php echo $row["email"]; ?></p>
-                        <p>Description: <?php echo $row["description"]; ?></p>
-                        <br>
-                      </div>
-                      <div class="card-action">
-                        <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
-                        <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
-                        <a id="expand" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
-                      </div>
-                    </div>
-                    </div>
-                    </div>
-
-                    <input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
-                    <input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
-
-
-
-
-                    <?php
-                    }
-                    ?>
-                    </table>
-                    <?php
-                    }
-                    else{
-                    echo "No result found";
-                    }
-                    ?>
-                    </div>
+                    <h4>Demo of Simple Modal</h4> 
+                <p> 
+                <div class="red-text"> 
+ 
+                    Content of the modal goes here. <br> 
+                    Type information here. <br> 
+                </div> 
+                </div>
                 C is a procedural programming language. 
                 It was initially developed by Dennis  
                 Ritchie as a system programming language  
@@ -299,6 +236,19 @@ else{
                 like operating system or compiler development. 
                 </p> 
             </div> 
+
+                    <?php
+                    }
+                    $arrayofrows = mysqli_fetch_all($result);
+                    ?>
+                    </table>
+                    <?php
+                    }
+                    else{
+                    echo "No result found";
+                    }
+                    ?>
+
   
             <div class="modal-footer"> 
                 <a href="#!" class="modal-action  
@@ -314,7 +264,29 @@ else{
             $('.modal').modal(); 
         } 
         ) 
-    </script> 
+    </script>
+
+  <script>
+    function gotoChat(email,name){
+      var semail=email;
+      var sname=name;
+      var queryString = "?" + semail + "&" + sname;
+      window.location.href = '../dm/staff.html' + queryString;
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
