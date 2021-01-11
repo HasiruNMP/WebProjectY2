@@ -158,7 +158,7 @@
       ]);
 
       var options = {
-        region: 'Ll',
+        region: 'LK',
         displayMode: 'markers',
         colorAxis: {colors: ['green', 'blue']}
       };
