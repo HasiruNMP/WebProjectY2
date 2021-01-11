@@ -3,7 +3,7 @@
         <title>
             Web Master
         </title>
-    </head>
+    </head> 
     <body>
         <script type="text/javascript">
             
@@ -23,12 +23,12 @@
         <h3>
             Please Fill the Details below.
         </h3>
-        <form action="storing register details.php" method="post" enctype="multipart/form-data" >
+        <form action="stroring webmaster details.php" method="post" enctype="multipart/form-data" >
             <label for="name">Name</label><br>
-            <input type="text" name="fname" placeholder="Name" required> <br>
+            <input type="text" name="name" placeholder="Name" required> <br>
        
             <label for="username">Username</label><br>
-            <input type="text" name="fname" placeholder="Username" required><br>
+            <input type="text" name="usname" placeholder="Username" required><br>
             <label>Password :</label><br>
              <input name="password" id="password" type="password" required /><br>
              <label>Confirm Password:</label> <br>
@@ -38,3 +38,4 @@
         
     </body>
 </html>
+
