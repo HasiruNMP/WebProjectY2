@@ -200,7 +200,7 @@ else{
         </a> 
   
         <!-- Modal Structure -->
-        <div id="demo-modal" class="modal"> 
+        <div id="demo-modal" class="modal modal-fixed-footer"> 
             <div class="modal-content"> 
                 <h4>Demo of Simple Modal</h4> 
                 <p> 
@@ -208,6 +208,86 @@ else{
                     Content of the modal goes here. <br> 
                     Type information here. <br> 
                 </div> 
+                    <div> 
+
+                        
+                    <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "dD4aW06XoB";
+
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+                    if(!$conn)
+                    {
+                    echo "Server Not connected";
+                    }
+                    else
+                    {
+                    echo "Server connected";
+                    }
+
+                    if(!mysqli_select_db($conn,$dbname))
+                    {
+                    echo "Database Not Selected";
+                    }
+
+                    else
+                    {
+                    echo "Database Selected";
+                    }
+
+
+                    ?>
+
+                    <?php
+                    $result = mysqli_query($conn,"SELECT * FROM reports");
+                    if (mysqli_num_rows($result) > 0) {
+                    ?>
+
+
+
+                    <?php
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <div class="row">
+                    <div class="col s12">
+                    <div class="card blue-grey darken-1">
+                      <div class="card-content white-text">
+                        <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
+                        <p>Quality: <?php echo $row["quality"]; ?></p>
+                        <p><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> | <?php echo $row["email"]; ?></p>
+                        <p>Description: <?php echo $row["description"]; ?></p>
+                        <br>
+                      </div>
+                      <div class="card-action">
+                        <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
+                        <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
+                        <a id="expand" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+
+                    <input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
+                    <input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
+
+
+
+
+                    <?php
+                    }
+                    ?>
+                    </table>
+                    <?php
+                    }
+                    else{
+                    echo "No result found";
+                    }
+                    ?>
+                    </div>
                 C is a procedural programming language. 
                 It was initially developed by Dennis  
                 Ritchie as a system programming language  
