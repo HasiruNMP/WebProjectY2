@@ -24,39 +24,46 @@
   else{echo "Database Selected";}
 
   $result = mysqli_query($conn,"SELECT * FROM stat_crops");
-
+  ?>
+  <table border="1" align="center" width="30%">
+  <?php
   if (mysqli_num_rows($result) > 0) {
-    while($row = mysqli_fetch_array($result)) {
-      echo $row['reportCount'];
+    while($row = mysqli_fetch_array($result)) { ?> <br>
+       
+       <tr><th><?php echo $row['croptype'];?></th> <th><?php echo $row['count'];?></th></tr>
+     
+
+
+
+      <?php
     }
   }
-
-  ?>  
+?>
+  
 
   <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        
+       
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Fruits',  23],
+          ['Grains',      30],
+          ['Vegetables',  43],
+         
         ]);
 
-        var options = {
-          title: 'My Daily Activities'
-        };
+
+          var options = {'title':'Crops Statistic', 'width':1000, 'height':700};
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
+
       }
     </script>
-      <div id="piechart"></div>
+      <div id="piechart" align="center"></div>
 </body>
 </html>

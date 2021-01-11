@@ -75,7 +75,7 @@ $result = mysqli_query($conn,"SELECT * FROM reports where email='$email'");
 
 <div>
   <table border="1">
-  	<tr><th> Report ID </th><th> Crop Name </th><th> Crop Type </th><th> Description </th>	<th> Name </th>	<th> Email</th><th> Location</th><th> Photo1</th><th> Photo2</th><th> Photo3</th></tr>	
+  	<tr><th> Report ID </th><th> Crop Name </th><th> Crop Type </th> <th> Quantity </th> <th> Description </th>	<th> Name </th>	<th> Email</th><th> Location</th><th> Photo1</th><th> Photo2</th><th> Photo3</th></tr>	
   
 <?php
 
@@ -83,7 +83,7 @@ $row = mysqli_fetch_array($result);
 ?>
 
 
-    		<tr><td id="<?php echo $row["report_id"]; ?>" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)"><?php echo $row["report_id"]; ?> </td><td><b id="submit"><?php echo $row["crop_name"]; ?> </b></td> <td><?php echo $row["crop_type"]; ?></td>
+    		<tr><td id="<?php echo $row["report_id"]; ?>" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)"><?php echo $row["report_id"]; ?> </td><td><b id="submit"><?php echo $row["crop_name"]; ?> </b></td> <td><?php echo $row["crop_type"]; ?></td> <td><?php echo $row["quantity"]; ?></td>
   			<td><?php echo $row["description"]; ?> </td><td><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?></td>
     		<td><?php echo $row["email"]; ?></td><td><?php echo $row["lat"]; ?>,<?php echo $row["longt"]; ?></td>
     		<td><img class="reportphoto" src="images\<?php echo $row["photo1"]; ?>"></td>
