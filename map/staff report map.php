@@ -160,7 +160,7 @@ while($row = mysqli_fetch_array($result)) {
         </div>
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
-          <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?>', '<?php echo $row['lname']; ?>' )">Message</a>
+          <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
           <a id="expand" href="#modal1">Expand</a>
         </div>
       </div>
@@ -194,9 +194,9 @@ else{
 
 
 <script>
-  function gotoChat(email, fname, lname){
+  function gotoChat(email,name){
     var semail=email;
-    var sname=fname;
+    var sname=name;
     var queryString = "?" + semail + "&" + sname;
     window.location.href = '../dm/staff.html' + queryString;
   }

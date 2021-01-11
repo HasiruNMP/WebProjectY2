@@ -26,17 +26,16 @@
         // db variable
         var db = firebase.firestore();
     </script>
-    <script src="app-farmer.js"></script>
+    <script src="app-staff.js"></script>
     <script>
- 
         var queryString = decodeURIComponent(window.location.search);
         queryString = queryString.substring(1);
         var queries = queryString.split("&");
-        for (var i = 0; i < queries.length; i++)
-        {
-          document.write(queries[i] + "<br>");
-        }
-         
+        var sesemail = queries[0];
+        var sesname = queries[1];
+
+         // document.write(queries[1] + "<br>");
+
     </script> 
         <nav class="grey darken-3">
             <div class="nav-wrapper">
@@ -60,21 +59,27 @@
 <div class="container">
 
     <div class="row">
+
         <div class="row green">
             <p id="sender">Sender</p>
         </div>
+
         <div class="row grey lighten-3" id="chat-main">
         </div>
+
         <div class="row center grey lighten-4">
             <div class="col s8">
                 <input type="text" id="typedmessage" name="typedmessage">
             </div>
             <div class="col s2 ">
-                <button onclick="sendmessage()" class="btn waves-effect waves-light">Send<i class="material-icons right">send</i></button>
+                <button onclick="sendmessage(sesemail)" class="btn waves-effect waves-light">Send<i class="material-icons right">send</i></button>
             </div>
         </div>
     </div>
-
+    <script>
+        console.log(sesemail,sesname)
+    </script>
+    
 
 
 
@@ -82,7 +87,7 @@
 
 <script>
     //mcountListener()
-    loadmessage()
+    initChat(sesemail)
 </script>
 
 

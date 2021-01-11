@@ -87,10 +87,9 @@ google.maps.event.addDomListener(window, 'load', initMap);
   <body>
   	
 
-    <div id ="leftpanel"> 
+<div id ="leftpanel"> 
 
-    
-    	<?php
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -118,7 +117,6 @@ else
 	echo "Database Selected";
 }
 
-
 ?>
 
 <?php
@@ -130,7 +128,7 @@ $result = mysqli_query($conn,"SELECT * FROM reports");
 
 
 
-    	<?php
+<?php
 if (mysqli_num_rows($result) > 0) {
 ?>
   <table border="0">

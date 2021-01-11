@@ -1,7 +1,21 @@
-function mcountListener(countCheck){
-    db.collection("messages").doc("farmer1")
+function initChat(email){
+    var docRef = db.collection("messages").doc(email);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            loadmessage(email);
+        } else {
+            db.collection("messages").doc(email).set({
+                messageCount: 0
+            })  
+        } 
+    });  
+}
+
+
+function mcountListener(countCheck,email){
+    db.collection("messages").doc(email)
     .onSnapshot(function(doc) {
-        let mcount = doc.data().messageCount;
+        var mcount = doc.data().messageCount;
         //console.log("updated")
         if(countCheck != mcount){
             newmessage(mcount)
@@ -10,11 +24,11 @@ function mcountListener(countCheck){
     });
 }
 
-function loadmessage(useremail,msgno){
+function loadmessage(email){
 
     const chat_main = document.getElementById('chat-main')
 
-    db.collection("messages").doc("farmer1").collection("messages").orderBy("order","asc").get().then(function(querySnapshot) {
+    db.collection("messages").doc(email).collection("messages").orderBy("order","asc").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             //console.log(doc.data());
             var sender = doc.data().sender;
@@ -34,33 +48,33 @@ function loadmessage(useremail,msgno){
 
         });
     });
-    var docRef = db.collection("messages").doc("farmer1");
+    var docRef = db.collection("messages").doc(email);
     docRef.get().then(function(doc) {
         var mcount = doc.data().messageCount;
         countCheck = mcount;
         //console.log(mcount)
-        mcountListener(countCheck)     
+        mcountListener(countCheck,email)     
     });   
     
 }
 
-function sendmessage(mtext,mcount){
+function sendmessage(email){
 
     let message = document.getElementById("typedmessage").value
     //console.log(message)
 
-    var docRef = db.collection("messages").doc("farmer1");
+    var docRef = db.collection("messages").doc(email);
     docRef.get().then(function(doc) {
         var mcount = doc.data().messageCount;
         mcount = mcount + 1
         
-        db.collection("messages").doc("farmer1").update({
+        db.collection("messages").doc(email).update({
             messageCount: mcount,
         })
-        //console.log(mcount)
+        console.log(email)
 
-        db.collection("messages").doc("farmer1").collection("messages").doc().set({
-            sender: "s",
+        db.collection("messages").doc(email).collection("messages").doc().set({
+            sender: "f",
             text: message,
             order: mcount,
             status: "unread",
@@ -75,7 +89,7 @@ function newmessage(mcount){
 
     //console.log(mcount)
 
-    db.collection("messages").doc("farmer1").collection("messages").where("order", "==", mcount)
+    db.collection("messages").doc(email).collection("messages").where("order", "==", mcount)
     .get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             //console.log(doc.data());
