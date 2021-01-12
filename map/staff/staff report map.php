@@ -63,13 +63,6 @@
     mapTypeId: 'roadmap'
   });
 
-  const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-  const beachMarker = new google.maps.Marker({
-    position: { lat: 7.8742, lng: 80.6511},
-    map,
-    icon: image,
-  });
 
 
   //google.maps.event.addDomListener(document.getElementById('report'), 'click', function(evt) {
