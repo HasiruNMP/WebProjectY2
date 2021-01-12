@@ -165,6 +165,20 @@ while($row = mysqli_fetch_array($result)) {
           <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
           <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
 
+           <form action="qualitysubmit.php" method="post">
+          <br>
+          <input type="hidden" name="rpid" value="<?php echo $row['report_id']; ?>">
+          <label class="container">Good<input type="radio" name="quality" value="good">
+          <span class="checkmark"></span>
+        </label>
+
+
+        <label class="container">Bad<input type="radio" name="quality" value="bad">
+          <span class="checkmark"></span>
+          <input type="submit" name="submit">
+        </label>
+      </form>
+
         </div>
       </div>
     </div>
