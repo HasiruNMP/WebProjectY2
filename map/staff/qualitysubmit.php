@@ -32,17 +32,18 @@ else
 
 $reportid= $_POST["rpid"];
 $quality = $_POST["quality"];
+$decision= $_POST["decision"];
 
 
 
-echo  "<br>" . $reportid . "<br>". $quality . "<br>";
+echo  "<br>" . $reportid . "<br>". $quality . "<br>" . "<br>". $decision . "<br>";
 
 
 if(isset($_REQUEST["submit"]))
 {
 
 
-$sql="UPDATE reports SET quality='".$quality."' where report_id='$reportid'";
+$sql="UPDATE reports SET quality='".$quality."',bought='".$quality."' where report_id='$reportid'";
 }
 
  if(!mysqli_query($conn,$sql))

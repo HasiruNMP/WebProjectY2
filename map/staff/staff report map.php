@@ -63,6 +63,13 @@
     mapTypeId: 'roadmap'
   });
 
+  const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+  const beachMarker = new google.maps.Marker({
+    position: { lat: 7.8742, lng: 80.6511},
+    map,
+    icon: image,
+  });
 
 
   //google.maps.event.addDomListener(document.getElementById('report'), 'click', function(evt) {
@@ -165,6 +172,7 @@ while($row = mysqli_fetch_array($result)) {
           <a href="#" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
           <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a>
 
+
            <form action="qualitysubmit.php" method="post">
           <br>
           <input type="hidden" name="rpid" value="<?php echo $row['report_id']; ?>">
@@ -174,7 +182,19 @@ while($row = mysqli_fetch_array($result)) {
 
 
         <label class="container">Bad<input type="radio" name="quality" value="bad">
+          <span class="checkmark"></span>   
+
+
+
+            <input type="hidden" name="rpid" value="<?php echo $row['report_id']; ?>">
+          <label class="container">Buy<input type="radio" name="decision" value="buy">
           <span class="checkmark"></span>
+        </label>
+
+
+        <label class="container">Ignore<input type="radio" name="decision" value="ignore">
+          <span class="checkmark"></span>
+        </label>
           <input type="submit" name="submit">
         </label>
       </form>
