@@ -1,3 +1,15 @@
+<?php
+session_start();
+if ( isset( $_SESSION['fpassword'] ) ) 
+{}
+else 
+{
+	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
+	header("Location: ../index.php");
+	exit;
+}
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -93,11 +105,12 @@ google.maps.event.addDomListener(window, 'load', initMap);
 <nav class="grey darken-3">
         <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="reports-public.php">Reports</a></li>
-            <li><a href="graphs-public.php">Graphs</a></li>
+            <li><a href="sass.html">Reports</a></li>
+            <li><a href="badges.html">Messages</a></li>
+            <li><a href="badges.html">Graphs</a></li>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href = "../index.php" class="waves-effect waves-light btn green">Log In <i class="material-icons  right">account_circle</i></a></li>
+            <li><a href = "../staff/login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
         </ul>
         </div>
         </nav>
@@ -160,20 +173,20 @@ while($row = mysqli_fetch_array($result)) {
         <div class="card-content white-text">
           <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
           <p>Quality: <?php echo $row["quality"]; ?></p>
-
+          <p><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> | <?php echo $row["email"]; ?></p>
           <p>Description: <?php echo $row["description"]; ?></p>
           <br>
           <table>
           <tr>
-          <td><img class="materialboxed" width="150" src="../reports/images/<?php echo $row['photo1']; ?>"></td>
-          <td><img class="materialboxed" width="150" src="../reports/images/<?php echo $row['photo2']; ?>"></td>
-          <td><img class="materialboxed" width="150" src="../reports/images/<?php echo $row['photo3']; ?>"></td>
+          <td><img class="materialboxed" width="150" src="images/<?php echo $row['photo1']; ?>"></td>
+          <td><img class="materialboxed" width="150" src="images/<?php echo $row['photo2']; ?>"></td>
+          <td><img class="materialboxed" width="150" src="images/<?php echo $row['photo3']; ?>"></td>
           </tr>
           </table>
         </div>
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
-
+          <a href="#" onclick="edit('<?php echo $row['report_id']; ?>')">Edit report</a>
           <!-- <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a> -->
 
         </div>
@@ -208,7 +221,7 @@ else{
       var semail=email;
       var sname=name;
       var queryString = "?" + semail + "&" + sname;
-      window.location.href = '../dm/staff.html' + queryString;
+      window.location.href = 'farmer-edit-report.php' + queryString;
     }
   </script>
 

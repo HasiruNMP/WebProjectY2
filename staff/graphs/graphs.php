@@ -1,5 +1,16 @@
+<?php
+session_start();
+if ( isset( $_SESSION['spassword'] ) ) 
+{
 
-
+}
+else 
+{
+	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
+	header("Location: ../login/login-farmers.php");
+	exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,19 +28,54 @@
 
 <body>
 <nav class="grey darken-3">
-        <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="reports-public.php">Reports</a></li>
-            <li><a href="graphs-public.php">Graphs</a></li>
-        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href = "../index.php" class="waves-effect waves-light btn green">Log In <i class="material-icons  right">account_circle</i></a></li>
-        </ul>
-        </div>
-        </nav>
-  </head>
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="../../reports/farmer-view-reports.php">Reports</a></li>
+        <li><a href="../dm/staff.php">Messages</a></li>
+        <li><a href="#"><b>Graphs</b></a></li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../login/logout.php" class="waves-effect waves-light btn grey">Log Out<i class="material-icons  right">account_circle</i></a></li>
+    </ul>
+    </div>
+</nav>
+  <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "dD4aW06XoB";
+
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  if(!$conn){echo "Server Not connected";}
+  else{
+    //echo "Server connected";
+  }
+  if(!mysqli_select_db($conn,$dbname)){
+    //echo "Database Not Selected";
+  }
+  else{
+    //echo "Database Selected";
+  }
+
+  $result = mysqli_query($conn,"SELECT * FROM stat_crops");
+  ?>
+  <table border="1" align="center" width="30%">
+  <?php
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_array($result)) { ?> <br>
+       
+       <!--<tr><th><?php #echo $row['croptype'];?></th> <th><?php #echo $row['count'];?></th></tr>-->
+     
 
 
+
+      <?php
+    }
+  }
+?>
+  
 
   <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
