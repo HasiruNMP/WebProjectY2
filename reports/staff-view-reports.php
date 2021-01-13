@@ -106,8 +106,8 @@ google.maps.event.addDomListener(window, 'load', initMap);
         <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="sass.html">Reports</a></li>
-            <li><a href="badges.html">Messages</a></li>
-            <li><a href="badges.html">Graphs</a></li>
+            <li><a href="../staff/dm/staff.php">Messages</a></li>
+            <li><a href="../public/graphs-public.php">Graphs</a></li>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href = "../staff/login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
