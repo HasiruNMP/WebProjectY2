@@ -55,6 +55,11 @@ else
   <body>
 
 
+<form action="#" method="post" >
+<input id="eml" name="eml"  type="text" placeholder="Enter Your Email" >
+<input type="submit" name="submit" value="View My Report"> 
+</form>
+
 <form action="farmer-update-report.php" method="post" >
 <input id="eml" name="eml"  type="text" placeholder="Enter Your Email" >
 <input type="submit" name="submit" value="Update My Report"> 
