@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ( isset( $_SESSION['fpassword'] ) ) 
+if ( isset( $_SESSION['femail'] ) ) 
 {}
 else 
 {
@@ -105,7 +105,8 @@ google.maps.event.addDomListener(window, 'load', initMap);
 <nav class="grey darken-3">
         <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="sass.html">Reports</a></li>
+            <li><a href="sass.html">My Reports</a></li>
+            <li><a href="sass.html">Add New Report</a></li>
             <li><a href="../farmers/dm/farmer.php">Messages</a></li>
             <li><a href="../public/graphs-public.php">Graphs</a></li>
         </ul>
@@ -173,7 +174,6 @@ while($row = mysqli_fetch_array($result)) {
         <div class="card-content white-text">
           <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
           <p>Quality: <?php echo $row["quality"]; ?></p>
-          <p><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> | <?php echo $row["email"]; ?></p>
           <p>Description: <?php echo $row["description"]; ?></p>
           <br>
           <table>
@@ -188,7 +188,6 @@ while($row = mysqli_fetch_array($result)) {
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
           <a href="farmer-edit-report.php" onclick="edit('<?php echo $row['report_id']; ?>')">Edit report</a>
           <!-- <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a> -->
-
         </div>
       </div>
     </div>

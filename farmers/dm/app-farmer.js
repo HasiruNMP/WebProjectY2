@@ -1,20 +1,25 @@
-
-
-
-
-
-
-
-
+function initChat(email){
+    console.log(email)
+    var docRef = db.collection("messages").doc(email);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            loadmessage(email);
+        } else {
+            db.collection("messages").doc(email).set({
+                messageCount: 0
+            })  
+        } 
+    });  
+}
 
 
 function mcountListener(countCheck,email){
     db.collection("messages").doc(email)
     .onSnapshot(function(doc) {
-        let mcount = doc.data().messageCount;
+        var mcount = doc.data().messageCount;
         //console.log("updated")
         if(countCheck != mcount){
-            newmessage(mcount)
+            newmessage(mcount,email)
         }
         //console.log(mcount)
     });
@@ -49,7 +54,7 @@ function loadmessage(email){
         var mcount = doc.data().messageCount;
         countCheck = mcount;
         //console.log(mcount)
-        mcountListener(countCheck)     
+        mcountListener(countCheck,email)     
     });   
     
 }
@@ -79,7 +84,7 @@ function sendmessage(email){
     });      
 }
 
-function newmessage(mcount){
+function newmessage(mcount,email){
 
     const chat_main = document.getElementById('chat-main')
 

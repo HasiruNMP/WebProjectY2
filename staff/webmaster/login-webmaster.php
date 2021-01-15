@@ -4,32 +4,46 @@
 <title>Login - Farmer</title>
 
 
+<link rel="icon" href="../../img/logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-
+<nav class="grey darken-3">
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="sass.html">Reports</a></li>
+        <li><a href="badges.html">Graphs</a></li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn">Login Portal<i class="material-icons  right">account_circle</i></a></li>
+    </ul>
+    </div>
+</nav>
+<div class="container">
     <form id="login-form" method="post" action="#" >
-        <img src="../images/logo1.png" class="avatar">
-        <p id="l1">Cultivation Report Platform</p>
-        <table>
+        <h4 id="l1" class="center-align">Login for WebMaster</h4>
+ 
 
-            <tr>
-                <td><p align="left" id="sid">Email</p>
-                    <input type="text" name="email" id="user_id" placeholder="                Email"></td>
 
-            </tr>
+  <p align="left" id="sid">Email</p>
+                    <input type="text" name="email" id="user_id" placeholder="Email">    
 
-            <tr>
-                <td><p align="left" id="sid">Password</p>
-                    <input type="password" name="password" id="user_pass" placeholder="                  Password"></input></td>
-            </tr>
 
-            <tr>
-                <input type="submit" name="submit" class="submit" value="login" id="sub">
-            </tr>
+
+              
+                     <p align="left" id="sid">Password</p>
+                    <input type="password" name="password" id="user_pass" placeholder="Password"></input>    
+               
+
+              
+                <input type="submit" class="valign-wrapper center-align btn" name="submit" class="submit" value="login" id="sub">
+               
 
         </table>
     </form>
-    <a href="login-staff.php"><button type="button">Login for Staff </button> </a>
+
     
 
     <?php
@@ -84,6 +98,6 @@ else
 }
 }
 ?>
-
+</div>
 </body>
 </html>

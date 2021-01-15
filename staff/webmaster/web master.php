@@ -3,6 +3,11 @@
         <title>
             Web Master
         </title>
+        
+<link rel="icon" href="../../img/logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head> 
     <body>
         <script type="text/javascript">
@@ -18,8 +23,19 @@
     }
 
         </script>
-
-
+<nav class="grey darken-3">
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="sass.html">Create Staff Account</a></li>
+        <li><a href="badges.html">Messages</a></li>
+        <li><a href="badges.html">Graphs</a></li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light btn">Log Out<i class="material-icons  right">account_circle</i></a></li>
+    </ul>
+    </div>
+</nav>
+<div class="container">
         <h3>
             Please Fill the Details below.
         </h3>
@@ -35,7 +51,7 @@
              <input type="password" name="confirm_password" id="confirm_password" required/> <br>
             <input type="submit" name="submit" value="Submit" onclick="return Validate()">
         </form>
-        
+        </div>
     </body>
 </html>
 

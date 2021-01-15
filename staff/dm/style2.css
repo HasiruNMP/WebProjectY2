@@ -1,0 +1,19 @@
+#chat-main{
+    height: 600px;
+    overflow: auto;
+}
+
+#chat-sent{
+    text-align: left;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#chat-recieved{
+    text-align: right;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+
+}

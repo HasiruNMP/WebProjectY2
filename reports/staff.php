@@ -14,7 +14,7 @@ else
 <html lang="en">
 <head>
     <title>Messages</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -45,17 +45,14 @@ else
         var queries = queryString.split("&");
         var sesemail = queries[0];
         var sesname = queries[1];
-        
-        console.log(sesname)
 
-        //document.write(queries[1] + "<br>");
+         // document.write(queries[1] + "<br>");
 
     </script> 
 <nav class="grey darken-3">
     <div class="nav-wrapper">
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="../../reports/staff-view-reports.php">My Reports</a></li>
-        <li><a href="../../reports/staff-view-reports.php">Add New Report</a></li>
+        <li><a href="../../reports/staff-view-reports.php">Reports</a></li>
         <li><a href="#"><b>Messages</b></a></li>
         <li><a href="../graphs/graphs.php">Graphs</a></li>
     </ul>
@@ -69,32 +66,34 @@ else
 
 <body>
 
+
+
 <div class="container">
 
-    <div id="flist" class="">
-    <h5 id="sender">Sender</h5>
+    
+<div class="container">
+
+    <div id="flist" class="card-panel teal">
     </div>
 
-    <div class="card-panel grey darken-2">
+    <div class="card-panel teal">
 
-        <div class="row grey">
-            
+        <div class="row green">
+            <p id="sender">Sender</p>
         </div>
 
         <div class="row grey lighten-3" id="chat-main">
         </div>
 
-
-    </div>
-    <div class="row center">
-            <div class="row">
-                <input type="text" id="typedmessage" name="typedmessage" placeholder="Type Message">
-                <button onclick="sendmessage(sesemail)" class="btn green waves-effect waves-light">Send<i class="material-icons right">send</i></button>
+        <div class="row center grey lighten-4">
+            <div class="col s8">
+                <input type="text" id="typedmessage" name="typedmessage">
             </div>
-            <div class="col">
-                
+            <div class="col s2">
+                <button onclick="sendmessage(sesemail)" class="btn waves-effect waves-light">Send<i class="material-icons right">send</i></button>
             </div>
         </div>
+    </div>
     <script>
         console.log(sesemail,sesname)
     </script>
@@ -105,8 +104,6 @@ else
 </div>
 
 <script>
-    //document.getElementById("sender").innerHTML = 'Chatting with ' + sesname;
-    document.getElementById("sender").innerHTML = 'Chatting with Keels ';
     //mcountListener()
     initChat(sesemail)
 </script>

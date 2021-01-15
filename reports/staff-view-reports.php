@@ -246,7 +246,7 @@ else{
       var semail=email;
       var sname=name;
       var queryString = "?" + semail + "&" + sname;
-      window.location.href = '../dm/staff.html' + queryString;
+      window.location.href = '../staff/dm/staff.php' + queryString;
     }
   </script>
 

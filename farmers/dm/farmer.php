@@ -1,11 +1,11 @@
 <?php
 session_start();
-if ( isset( $_SESSION['fpassword'] ) ) 
+if ( isset( $_SESSION['femail'] ) ) 
 {}
 else 
 {
 	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
-	header("Location: ../login/farmers/login-farmers.php");
+	header("Location: ../login/login-farmers.php");
 	exit;
 }
 ?>
@@ -13,6 +13,7 @@ else
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="app-farmer.js"></script>
 <link rel="icon" href="../../img/logo.png">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -38,7 +39,7 @@ else
         // db variable
         var db = firebase.firestore();
     </script>
-    <script src="app-farmer.js"></script>
+    
     <link rel="icon" href="../../img/logo.png">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -77,7 +78,7 @@ else
                 <input type="text" id="typedmessage" name="typedmessage">
             </div>
             <div class="col s2 ">
-                <button onclick="sendmessage()" class="btn waves-effect waves-light">Send<i class="material-icons right">send</i></button>
+                <button onclick="sendmessage('<?php echo $_SESSION['femail'] ?>')" class="btn waves-effect waves-light">Send<i class="material-icons right">send</i></button>
             </div>
         </div>
     </div>
@@ -86,7 +87,7 @@ else
 
 <script>
     //mcountListener()
-    loadmessage()
+    initChat('<?php echo $_SESSION['femail'] ?>');
 </script>
 
 

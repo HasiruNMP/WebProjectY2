@@ -38,7 +38,8 @@ function loadmessage(email){
                 textcont.setAttribute("id", "chat-sent");
             }
             else{
-                textcont.setAttribute("id", "chat-recieved");               
+                textcont.setAttribute("id", "chat-recieved");
+              
             }
             
             textcont.innerText = doc.data().text;
