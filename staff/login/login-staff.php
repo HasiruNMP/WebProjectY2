@@ -1,14 +1,13 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Login - Farmer</title>
+<title>Login</title>
 
 
 </head>
 <body>
 
     <form id="login-form" method="post" action="#" >
-        <img src="../images/logo1.png" class="avatar">
         <p id="l1">Cultivation Report Platform</p>
         <table>
 
@@ -29,12 +28,12 @@
 
         </table>
     </form>
-    <a href="login-staff.php"><button type="button">Login for Staff </button> </a>
     
 
-    <?php
-   ob_start();
-   session_start();
+<?php
+
+ob_start();
+session_start();
 
 //error_reporting(0);
 
@@ -76,7 +75,7 @@ if ($username = $ses_username && $password = $ses_password)
    $_SESSION['susername'] = $ses_username;
    $_SESSION['spassword'] = $ses_password;
    echo 'You have entered valid username and password';
-   header("Location: ../../reports/staff-view-reports.php");
+   header("Location: ../reports/staff-view-reports.php");
 }
 else
 {

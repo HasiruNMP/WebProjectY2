@@ -1,40 +1,63 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Login - Farmer</title>
+    <link rel="icon" href="../../img/logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <style>
 
-
+    </style>
 </head>
+
 <body>
 
-    <form id="login-form" method="post" action="#" >
-        <img src="../images/logo1.png" class="avatar">
-        <p id="l1">Cultivation Report Platform</p>
-        <table>
+<div class="row">
 
-            <tr>
-                <td><p align="left" id="sid">email</p>
-                    <input type="text" name="email" id="user_id" placeholder="                email"></td>
+    <div class="col s8" id="img">
+        <!-- <img src="../../img/loginpage.jpg" class="cover"> -->
+    </div>
 
-            </tr>
+<form action="#" method="post">
+    <div class="col s4 card logincontx">
+        <div class="" id="logindiv">
+            <div class="row">
+                <div class="col s2"></div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">email</i>
+                    <input id="icon_prefix" type="text" name="email" class="validate">
+                    <label for="icon_prefix">Email</label>
+                </div>
+                <div class="col s2"></div>
+            </div>
+            <div class="row">
+                <div class="col s2"></div>
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="icon_prefix" type="password" name="password" class="validate">
+                    <label for="icon_prefix">Password</label>
+                </div>
+                <div class="col s2"></div>
+            </div>
+            <div class="row">
+                <div class="col s2"></div>
+                <div class=" col s8">
+                    <input type="submit" value="Submit">
+                </div>
+                <div class="col s2"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-            <tr>
-                <td><p align="left" id="sid">Password</p>
-                    <input type="password" name="password" id="user_pass" placeholder="                  Password"></input></td>
-            </tr>
 
-            <tr>
-                <input type="submit" name="submit" class="submit" value="login" id="sub">
-            </tr>
 
-        </table>
-    </form>
-    <a href="login-staff.php"><button type="button">Login for Staff </button> </a>
-    
 
-    <?php
-   ob_start();
-   session_start();
+
+<?php
+ob_start();
+session_start();
 
 //error_reporting(0);
 
@@ -47,7 +70,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error)
 {
-   die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 //echo "Connected successfully";
 
@@ -76,7 +99,7 @@ if ($email = $ses_email && $password = $ses_password)
    $_SESSION['femail'] = $ses_email;
    $_SESSION['fpassword'] = $ses_password;
    echo 'You have entered valid email and password';
-   header("Location: ../../reports/farmer-view-reports.php");
+   header("Location: ../reports/farmer-view-reports.php");
 }
 else
 {
@@ -84,6 +107,9 @@ else
 }
 }
 ?>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
 </html>

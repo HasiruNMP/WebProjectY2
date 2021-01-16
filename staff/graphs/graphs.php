@@ -1,13 +1,12 @@
+
 <?php
 session_start();
 if ( isset( $_SESSION['spassword'] ) ) 
-{
-
-}
+{}
 else 
 {
 	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
-	header("Location: ../login/login-farmers.php");
+	header("Location: ../login/login-staff.php");
 	exit;
 }
 ?>
@@ -28,17 +27,17 @@ else
 
 <body>
 <nav class="grey darken-3">
-    <div class="nav-wrapper">
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="../../reports/farmer-view-reports.php">Reports</a></li>
-        <li><a href="../dm/staff.php">Messages</a></li>
-        <li><a href="#"><b>Graphs</b></a></li>
-    </ul>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../login/logout.php" class="waves-effect waves-light btn grey">Log Out<i class="material-icons  right">account_circle</i></a></li>
-    </ul>
-    </div>
-</nav>
+        <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="../reports/staff-view-reports.php">Reports</a></li>
+            <li><a href="../dm/messages.php">Messages</a></li>
+            <li><a href="../graphs/graphs.php"><b>Graphs</b></a></li>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
+        </ul>
+        </div>
+        </nav>
   <?php
     $servername = "localhost";
     $username = "root";

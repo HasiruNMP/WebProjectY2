@@ -30,8 +30,6 @@ else
 }
 
 
-
-
 $name = $_POST["name"];
 $usname = $_POST["usname"];
 $cmpw = $_POST["confirm_password"];
