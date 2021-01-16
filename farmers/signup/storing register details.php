@@ -1,3 +1,8 @@
+<html>
+<head>
+	</head>
+	<body>
+
 <?php
 $servername = "localhost";
 $username = "root";
@@ -71,3 +76,5 @@ $sql="INSERT INTO farmers (email, fname, lname, gender, adline1, adline2, city, 
 
 ?>
 
+</body>
+</html>
