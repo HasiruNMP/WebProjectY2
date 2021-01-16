@@ -3,6 +3,7 @@ session_start();
 if ( isset( $_SESSION['femail'] ) ) 
 {
   $email = $_SESSION['femail'];
+  echo $email;
 }
 else 
 {
