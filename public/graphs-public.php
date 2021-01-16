@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,139 +25,188 @@
         </ul>
         </div>
         </nav>
-  </head>
+<?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "dD4aW06XoB";
+
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  if(!$conn){
+    //echo "Server Not connected";
+  }
+  else{
+    //alert("Message");
+  }
+
+  if(!mysqli_select_db($conn,$dbname)){
+    //echo "Database Not Selected";
+  }
+
+  else{
+    //echo "Database Selected";
+  }
+
+  $crops = array();
+  $result = mysqli_query($conn,"SELECT * FROM stat_crops");
+  if (mysqli_num_rows($result) > 0) {
+
+    while($row = mysqli_fetch_array($result)) {
+      $crops[] = $row;
+    }
+
+  }
+  else{
+      echo "No result found";
+  }
+
+  $result = mysqli_query($conn,"SELECT * FROM stat_farmers");
+  if (mysqli_num_rows($result) > 0) {
+
+    while($row = mysqli_fetch_array($result)) {
+      $farmers[] = $row;
+      
+    }
+
+  }
+  else{
+      echo "No result found";
+  }
+
+  $result = mysqli_query($conn,"SELECT * FROM stat_reports");
+  if (mysqli_num_rows($result) > 0) {
+
+    while($row = mysqli_fetch_array($result)) {
+      $reports[] = $row;
+      
+    }
+
+  }
+  else{
+      echo "No result found";
+  }
+?>
+
+<div class="container">
+  <div id="crops" class="row green" style="width:800px; margin:0 auto;">
+  </div>
+  <div id="transactions" class="row red" style="height:400px; width:800px; margin:0 auto;">
+  </div>
+  <div id="farmers" class="row red center-align" style="height:800px; width:800px; margin:0 auto;">
+  </div>
+</div>
 
 
 
-  <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ['Fruits',<?php echo $crops[0]['count']; ?>],
+      ['Grains',<?php echo $crops[1]['count']; ?>],
+      ['Vegetables',<?php echo $crops[2]['count']; ?>],
+      
+    ]);
+
+
+      var options = {'title':'Crops Statistic', 'width':1000, 'height':700};
+
+    var chart = new google.visualization.PieChart(document.getElementById('crops'));
+
+    chart.draw(data, options);
+
+  }
+</script>
+
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawStuff);
+
+  function drawStuff() {
+    var data = new google.visualization.arrayToDataTable([
+      ['Status', ''],
+      ["Successfull Transactions", <?php echo $reports[0]['count']; ?>,],
+      ["Wasted Products", <?php echo $reports[1]['count']; ?>,],
+      ]);
+
+    var options = {
+      title: 'Report Status',
+      width: 900,
+      legend: { position: 'none' },
+      chart: { title: 'Report Status',
+                subtitle: 'Status by percentage' },
+      bars: 'horizontal', // Required for Material Bar Charts.
+      axes: {
+        x: {
+          0: { side: 'top', label: 'Percentage'} // Top x-axis.
+        }
+      },
+      bar: { groupWidth: "90%" }
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('transactions'));
+    chart.draw(data, options);
+  };
+</script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-       
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Fruits',  23],
-          ['Grains',      30],
-          ['Vegetables',  43],
-         
+          ['District', 'Number of Farmers'],
+          ['Ampara', <?php echo $farmers[0]['count']; ?> ],
+          ['Anuradhapura',<?php echo $farmers[1]['count']; ?> ],
+          ['Badulla',<?php echo $farmers[2]['count']; ?> ],
+          ['Batticaloa', <?php echo $farmers[3]['count']; ?>],
+          ['Colombo', <?php echo $farmers[4]['count']; ?>],
+          ['Galle', <?php echo $farmers[5]['count']; ?>],
+          ['Gampaha', <?php echo $farmers[6]['count']; ?>],
+          ['Hambantota', <?php echo $farmers[7]['count']; ?>],
+          ['Jaffna', <?php echo $farmers[8]['count']; ?>],
+          ['Kalutara', <?php echo $farmers[9]['count']; ?>],
+          ['Kandy', <?php echo $farmers[10]['count']; ?>],
+          ['Kegalla', <?php echo $farmers[11]['count']; ?>],
+          ['Kilinochchi', <?php echo $farmers[12]['count']; ?>],
+          ['Kurunegala', <?php echo $farmers[13]['count']; ?>],
+          ['Mannar', <?php echo $farmers[14]['count']; ?>],
+          ['Matale', <?php echo $farmers[15]['count']; ?>],
+          ['Matara', <?php echo $farmers[16]['count']; ?>],
+          ['Monaragala', <?php echo $farmers[17]['count']; ?>],
+          ['Mullaittivu', <?php echo $farmers[18]['count']; ?>],
+          ['Nuwara Eliya', <?php echo $farmers[19]['count']; ?>],
+          ['Polonnaruwa', <?php echo $farmers[20]['count']; ?>],
+          ['Puttalam', <?php echo $farmers[21]['count']; ?>],
+          ['Ratnapura', <?php echo $farmers[22]['count']; ?>],
+          ['Trincomalee', <?php echo $farmers[23]['count']; ?>],
+          ['Vavuniya', <?php echo $farmers[24]['count']; ?>]
+ 
         ]);
 
-
-          var options = {'title':'Crops Statistic', 'width':1000, 'height':700};
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-
-      }
-
-
-
-
-
-    </script>
-
-
-     <script type="text/javascript">
-       google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Status', 'Percentage'],
-          ["Successfull Transactions", 60],
-          ["Wasted Products", 11],
-          ]);
-
         var options = {
-          title: 'Report Status',
-          width: 900,
-          legend: { position: 'none' },
-          chart: { title: 'Report Status',
-                   subtitle: 'Status by percentage' },
-          bars: 'horizontal', // Required for Material Bar Charts.
-          axes: {
-            x: {
-              0: { side: 'top', label: 'Percentage'} // Top x-axis.
-            }
+          chart: {
+            title: "Farmers' Residence Details",
+            subtitle: '',
           },
-          bar: { groupWidth: "90%" }
+          bars: 'horizontal' // Required for Material Bar Charts.
         };
 
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        chart.draw(data, options);
-      };
+        var chart = new google.charts.Bar(document.getElementById('farmers'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
     </script>
 
-    <script type="text/javascript">
-      google.charts.load('current', {
-        'packages':['geochart'],
-        // Note: you will need to get a mapsApiKey for your project.
-        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-      });
-      google.charts.setOnLoadCallback(drawRegionsMap);
 
-      function drawRegionsMap() {
-        var data = google.visualization.arrayToDataTable([
-          ['City',   'Latitude'],
-          ['Kandy', 7], 
-          ['Colombo', 6], 
-          
-        ]);
-
-        var options = {
-          region: 'LK', // Africa
-          colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
-          backgroundColor: '#81d4fa',
-          datalessRegionColor: '#f8bbd0',
-          defaultColor: '#f5f5f5',
-        };
-
-        var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
-        chart.draw(data, options);
-      };
-    </script>
-
-       <script type='text/javascript'>
-     google.charts.load('current', {
-       'packages': ['geochart'],
-       // Note: you will need to get a mapsApiKey for your project.
-       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-       'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-     });
-     google.charts.setOnLoadCallback(drawMarkersMap);
-
-      function drawMarkersMap() {
-      var data = google.visualization.arrayToDataTable([
-        ['City',   'Population', 'Area'],
-        ['Rome',      2761477,    1285.31],
-        ['Milan',     1324110,    181.76],
-        ['Naples',    959574,     117.27],
-        ['Turin',     907563,     130.17],
-        ['Palermo',   655875,     158.9],
-        ['Genoa',     607906,     243.60],
-        ['Bologna',   380181,     140.7],
-        ['Florence',  371282,     102.41],
-        ['Fiumicino', 67370,      213.44],
-        ['Anzio',     52192,      43.43],
-        ['Ciampino',  38262,      11]
-      ]);
-
-      var options = {
-        region: 'LK',
-        displayMode: 'markers',
-        colorAxis: {colors: ['green', 'blue']}
-      };
-
-      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
-      chart.draw(data, options);
-    };
-    </script>
-      <div id="piechart" style="margin: auto; width: 600px; height: auto;" ></div>
-     <div id="top_x_div" style=" margin: auto; width: 600px; height: auto;"></div>
-      <div id="geochart-colors" style="margin: auto; width: 700px; height: auto;"></div>
 
 </body>
 </html>
