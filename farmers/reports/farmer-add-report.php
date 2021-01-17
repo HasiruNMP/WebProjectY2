@@ -20,6 +20,7 @@ else
     <title>Add New Report</title>
 
 
+
       <?php
 $servername = "localhost";
 $username = "root";
@@ -108,9 +109,17 @@ while($row = mysqli_fetch_array($result)) {
       }
     </style>
     <script>
-      // The following example creates a marker in Stockholm, Sweden using a DROP
-      // animation. Clicking on the marker will toggle the animation between a BOUNCE
-      // animation and no animation.
+        function getDate(){
+    var today = new Date();
+
+document.getElementById("date").value = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
+
+
+}
+
+
+
+
       let marker;
 
       function initMap() {
@@ -154,7 +163,7 @@ while($row = mysqli_fetch_array($result)) {
           infoWindow.setContent(
            
            
-            '<form action="farmer-report-added.php" method="post" enctype="multipart/form-data"> <table border="0"> <tr> <th colspan="2"><h1> Enter Your Details</h1></th></tr><input type="hidden" name="fname" value="<?php echo $row["fname"]; ?>"><input type="hidden" name="lname" value="<?php echo $row["lname"]; ?>"><input type="hidden" name="email" value="<?php echo $row["email"]; ?>"> <tr> <th> Crop Name: </th> <td> <input type="text" name="cropnme"> </td> </tr> <br> <tr> <th> Crop Type:</th> <td> <select name="cropt" ><option value="Fruits">Fruits</option><option value="Vegetables">Vegetable</option><option value="Grain">Grain</option></select></td> <br> <tr> <th> Quantity: </th> <td> <input type="text" name="qunt"> </td> </tr> <br> <tr> <th> Description: </th> <td> <input type="text" name="desc"> </td> </tr> <br> <tr> <th> Latitude: </th> <td> <input type="hidden" name="lati"  value="'+ mapsMouseEvent.latLng.lat() +'" > <input type="text"  disabled value="'+ mapsMouseEvent.latLng.lat() +'" > </td> </tr> <br><br> <tr> <th> Longitude: </th> <td> <input type="hidden" name="longi"  value="'+ mapsMouseEvent.latLng.lng() + '" > <input type="text"  disabled value="'+ mapsMouseEvent.latLng.lng() + '" > </td> </tr> <br>  <tr> <th> <label for="myfile">Select Photo1:</label> </th>  <br> <th> <input type="file" name="image"> </tr> </th>  <br>    <tr> <th> <label for="myfile">Select Photo 2:</label> </th>  <br> <th> <input type="file" name="image2"> </tr></th><br>  <tr> <th> <label for="myfile">Select Photo3:</label> </th>  <br> <th> <input type="file" name="image3"></tr></th><br><tr><td><input type="submit" name="submit"> </td> </tr></form> '
+            '<form action="farmer-report-added.php" method="post" enctype="multipart/form-data"> <table border="0"> <tr> <th colspan="2"><h1> Enter Your Details</h1></th></tr> <input type="hidden" name="fname" value="<?php echo $row["fname"]; ?>"><input type="hidden" name="lname" value="<?php echo $row["lname"]; ?>"><input type="hidden" name="email" value="<?php echo $row["email"]; ?>"> <tr> <th> Crop Name: </th> <td> <input type="text" name="cropnme"> </td> </tr> <br> <tr> <th> Crop Type:</th> <td> <select name="cropt" ><option value="Fruits">Fruits</option><option value="Vegetables">Vegetable</option><option value="Grain">Grain</option></select></td> <br> <tr> <th> Quantity: </th> <td> <input type="text" name="qunt"> </td> </tr> <br> <tr> <th> Description: </th> <td> <input type="text" name="desc"> </td> </tr> <br> <tr> <th> Latitude: </th> <td> <input type="hidden" name="lati"  value="'+ mapsMouseEvent.latLng.lat() +'" > <input type="text"  disabled value="'+ mapsMouseEvent.latLng.lat() +'" > </td> </tr> <br><br> <tr> <th> Longitude: </th> <td> <input type="hidden" name="longi"  value="'+ mapsMouseEvent.latLng.lng() + '" > <input type="text"  disabled value="'+ mapsMouseEvent.latLng.lng() + '" > </td> </tr> <br>  <tr> <th> <label for="myfile">Select Photo1:</label> </th>  <br> <th> <input type="file" name="image"> </tr> </th>  <br>    <tr> <th> <label for="myfile">Select Photo 2:</label> </th>  <br> <th> <input type="file" name="image2"> </tr></th><br>  <tr> <th> <label for="myfile">Select Photo3:</label> </th>  <br> <th> <input type="file" name="image3"></tr></th><br><tr><td><input type="submit" name="submit"> </td> </tr></form> '
           );
           infoWindow.open(map);
         });
