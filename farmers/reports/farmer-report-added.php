@@ -47,7 +47,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if(!$conn)
 {
-	 echo "Server Not connected";
+	// echo "Server Not connected";
 }
 else
 {
@@ -56,12 +56,12 @@ else
 
 if(!mysqli_select_db($conn,$dbname))
 {
-	echo "Database Not Selected";
+//	echo "Database Not Selected";
 }
 
 else
 {
-	echo "Database Selected";
+	//echo "Database Selected";
 }
 
 
