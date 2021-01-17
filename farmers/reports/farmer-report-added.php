@@ -89,7 +89,7 @@ $img3=$_FILES['image3']['name'];
 $temp_name=$_FILES['image3']['tmp_name'];
 $path = "images/";
 move_uploaded_file($temp_name,$path.$img3);
-$date = $_POST["date"];
+
 
 //echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>" . "<br>". $img2 . "<br>" . "<br>". $img3 . "<br>";
 
