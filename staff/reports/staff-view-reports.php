@@ -81,7 +81,7 @@ else
   });
 
 
-    if(qu=="good"){
+    if(qu=="Good"){
             const image =
     "goodmark.png";
   const beachMarker = new google.maps.Marker({
@@ -92,7 +92,7 @@ else
   });
 }
 
-else if(qu=="bad")
+else if(qu=="Bad")
 {
               const image =
     "badmark.png";
@@ -214,23 +214,23 @@ while($row = mysqli_fetch_array($result)) {
            <form action="staff-quality-submit-report.php" method="post">
           <br>
           <input type="hidden" name="rpid" value="<?php echo $row['report_id']; ?>">
-          <label class="container">Good<input type="radio" name="quality" value="good">
+          <label class="container">Good<input type="radio" name="quality" value="Good">
           <span class="checkmark"></span>
         </label>
 
 
-        <label class="container">Bad<input type="radio" name="quality" value="bad">
+        <label class="container">Bad<input type="radio" name="quality" value="Bad">
           <span class="checkmark"></span>   
 
 
 
             <input type="hidden" name="rpid" value="<?php echo $row['report_id']; ?>">
-          <label class="container">Buy<input type="radio" name="decision" value="buy">
+          <label class="container">Buy<input type="radio" name="decision" value="Buy">
           <span class="checkmark"></span>
         </label>
 
 
-        <label class="container">Ignore<input type="radio" name="decision" value="ignore">
+        <label class="container">Ignore<input type="radio" name="decision" value="Ignore">
           <span class="checkmark"></span>
         </label>
           <input type="submit" name="submit">
