@@ -12,44 +12,36 @@
 </head>
 
 <body>
+<nav class="grey darken-3">
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="../../index.php">Welcome</a></li>
+        <li><a href="../../public/reports.php">Reports</a></li>
+        <li><a href="../../public/graphs.php">Graphs</a></li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-<div class="row">
-
-    <div class="col s8" id="img">
-        <!-- <img src="../../img/loginpage.jpg" class="cover"> -->
+    </ul>
     </div>
+</nav>
 
-<form action="#" method="post">
-    <div class="col s4 card logincontx">
-        <div class="" id="logindiv">
-            <div class="row">
-                <div class="col s2"></div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">email</i>
-                    <input id="icon_prefix" type="text" name="email" class="validate">
-                    <label for="icon_prefix">Email</label>
-                </div>
-                <div class="col s2"></div>
-            </div>
-            <div class="row">
-                <div class="col s2"></div>
-                <div class="input-field col s8">
-                    <i class="material-icons prefix">lock</i>
-                    <input id="icon_prefix" type="password" name="password" class="validate">
-                    <label for="icon_prefix">Password</label>
-                </div>
-                <div class="col s2"></div>
-            </div>
-            <div class="row">
-                <div class="col s2"></div>
-                <div class=" col s8">
-                    <input type="submit" value="Submit">
-                </div>
-                <div class="col s2"></div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="container" style="width: 400px; text-align: center;">
+<br><br><br><br><br><br>
+    <form id="login-form" method="post" action="#" >
+        <h4 id="l1" class="center-align">Login</h4>
+ 
+            <br><br><br>
+            <input type="text" name="email" id="user_id" placeholder="Email">    
+            <br><br><br>
+            <input type="password" name="password" id="user_pass" placeholder="Password"></input>    
+            <br><br><br><br><br>
+            <input type="submit" class="center-align btn" name="submit" class="submit" value="login" id="sub">
+            <br><br>
+            <a href="../signup/register.html">Register</a>
+
+        
+    </form>
+
 
 
 

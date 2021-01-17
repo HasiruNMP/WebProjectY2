@@ -1,7 +1,23 @@
 <html>
 <head>
+<link rel="icon" href="../../img/logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<body>
+	<nav class="grey darken-3">
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="../../index.php">Welcome</a></li>
+        <li><a href="../../public/reports.php">Reports</a></li>
+        <li><a href="../../public/graphs.php">Graphs</a></li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+    </ul>
+    </div>
+</nav>
 
 <?php
 $servername = "localhost";
@@ -18,7 +34,7 @@ if(!$conn)
 }
 else
 {
-	echo "Server connected";
+	//echo "Server connected";
 }
 
 if(!mysqli_select_db($conn,$dbname))
@@ -28,7 +44,7 @@ if(!mysqli_select_db($conn,$dbname))
 
 else
 {
-	echo "Database Selected";
+	//echo "Database Selected";
 }
 
 
@@ -52,12 +68,6 @@ move_uploaded_file($temp_name,$path.$img);
 
 
 
-
-echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $gd . "<br>" . $line1 . "<br>". $line2 . "<br>" . $city ."<br>" . $province .  "<br>"  . $nic . "<br>"   . $telno . "<br>". $email . "<br>" . "<br>". $cm_psw . "<br>" . "<br>". $img . "<br>";
-
-
-
-
 if(isset($_REQUEST["submit"]))
 {
 
@@ -70,7 +80,8 @@ $sql="INSERT INTO farmers (email, fname, lname, gender, adline1, adline2, city, 
  	echo "Not Inserted";
  }
  else
- 	echo "Inserted";
+	echo "<center><h2>Registration Succesfull!</h2><br><h3>We will take you to the Login page now..</h3></center>";
+	header( "refresh:2;url=../login/login-farmers.php" );
 
 
 

@@ -186,7 +186,7 @@ while($row = mysqli_fetch_array($result)) {
         </div>
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
-          <a href="farmer-edit-report.php" onclick="edit('<?php echo $row['report_id']; ?>')">Edit report</a>
+          <a onclick="edit('<?php echo $row['report_id']; ?>')">Edit report</a>
           <!-- <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a> -->
         </div>
       </div>
@@ -216,25 +216,12 @@ else{
 
 
   <script>
-    function gotoChat(email,name){
-      var semail=email;
-      var sname=name;
-      var queryString = "?" + semail + "&" + sname;
+    function edit(rid){
+      var queryString = "?" + rid + "&" + rid;
       window.location.href = 'farmer-edit-report.php' + queryString;
     }
   </script>
 
-
-
-
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.materialboxed');
-    var instances = M.Materialbox.init(elems, options);
-  });
-</script>
 
 
 

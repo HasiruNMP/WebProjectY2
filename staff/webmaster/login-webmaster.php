@@ -3,7 +3,6 @@
 <head>
 <title>Login - Farmer</title>
 
-
 <link rel="icon" href="../../img/logo.png">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -21,34 +20,26 @@
     </ul>
     </div>
 </nav>
-<div class="container">
+<div class="container" style="width: 400px; text-align: center;">
+<br><br><br><br><br><br>
     <form id="login-form" method="post" action="#" >
         <h4 id="l1" class="center-align">Login for WebMaster</h4>
  
+            <br><br><br>
+            <input type="text" name="email" id="user_id" placeholder="Email">    
+            <br><br><br>
+            <input type="password" name="password" id="user_pass" placeholder="Password"></input>    
+            <br><br><br><br><br>
+            <input type="submit" class="center-align btn" name="submit" class="submit" value="login" id="sub">
 
-
-  <p align="left" id="sid">Email</p>
-                    <input type="text" name="email" id="user_id" placeholder="Email">    
-
-
-
-              
-                     <p align="left" id="sid">Password</p>
-                    <input type="password" name="password" id="user_pass" placeholder="Password"></input>    
-               
-
-              
-                <input type="submit" class="valign-wrapper center-align btn" name="submit" class="submit" value="login" id="sub">
-               
-
-        </table>
+        
     </form>
 
     
 
-    <?php
-   ob_start();
-   session_start();
+<?php
+ob_start();
+session_start();
 
 //error_reporting(0);
 
@@ -69,7 +60,7 @@ if (isset($_POST["email"]) AND isset($_POST["password"])) {
 $email= $_POST['email'];
 $password= $_POST['password'];
 
-$sql = "SELECT `email`, `password` FROM `farmers` WHERE `email` = '$email' AND `password` = '$password';";
+$sql = "SELECT `email`, `password` FROM `webmaster` WHERE `email` = '$email' AND `password` = '$password';";
 //echo $sql;
 $result = $conn->query($sql);
 

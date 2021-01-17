@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>
+            Register
+        </title>
+        
+<link rel="icon" href="../../img/logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <nav class="grey darken-3">
+            <div class="nav-wrapper">
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="../../index.php">Welcome</a></li>
+                <li><a href="../../public/reports.php">Reports</a></li>
+                <li><a href="../../public/graphs.php">Graphs</a></li>
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href = "../login/login-farmers.php" class="waves-effect waves-light btn green">Log In <i class="material-icons  right">account_circle</i></a></li>
+            </ul>
+            </div>
+            </nav>
+        <script type="text/javascript">
+            
+     function Validate() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+
+        </script>
+
+<div class="container">
+        
+        <form action="storing register details.php" method="post" enctype="multipart/form-data" >
+            <div class="row">
+                <div class="col s3"></div>
+                <div class="col s6">
+                    <h4>
+                        Please Fill the Details below
+                    </h4>
+                    <label for="name">Name</label><br>
+                    <input type="text" name="fname" placeholder="First Name" required>
+                    <input type="text" name="lname" placeholder="Last Name" required><br><br>
+        
+                    <label class="container">Gender <br><br><lable class="container">Male</lable>
+                    <input type="radio" name="gender" id="gender" value="male">
+                     <span class="checkmark"></span></label>
+                     <label class="container">Female
+                    <input type="radio" name="gender" id="gender" value="female">
+                     <span class="checkmark"></span></label><br><br>
+                    <label for="address">Address</label><br>
+                    <input type="text" name="line1" placeholder="Address line 1" required><br>
+                    <input type="text" name="line2" placeholder="Address line 2" required><br>
+                    <input type="text" name="city" placeholder="City" required><br>
+                    <input type="text" name="province" placeholder="Province" required><br><br>
+                    <label for="nic">NIC Number</label><br>
+                    <input type="text" name="nic" required><br><br>
+                    <label for="telnum">Telephone No.</label><br>
+                    <input type="tel" name="telnum" placeholder="071-417-1632" value="+94" required><br><br>
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" required><br><br>
+                    <label>Password :</label><br>
+                     <input name="password" id="password" type="password" required /><br>
+                     <label>Confirm Password:</label> <br>
+                     <input type="password" name="confirm_password" id="confirm_password" required/> <br>
+        
+        
+         
+                    <label for="propic">Insert Your Photo</label><br>
+                    <input type="file" name="image" required><br><br>
+                </div>
+                <div class="col s3"></div>
+            </div>
+
+            <div style="text-align: center;">
+                <input type="submit" class="btn waves-effect" name="submit" value="Submit" onclick="return Validate()">
+            </div>
+            
+        </form>
+    </div>   
+    </body>
+</html>

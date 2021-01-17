@@ -24,13 +24,6 @@ else
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src= 
-        "https://code.jquery.com/jquery-2.1.1.min.js"> 
-    </script> 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWH-XTux9pCrmqDoV6YM63Ex8FPrAQNLU&callback=initMap&libraries=&v=weekly"
-      defer
-    ></script>
 
        <style type="text/css">
   
@@ -58,16 +51,31 @@ else
 </nav>
 <div class="container">
 
-<form action="update my report.php" method="post" >
-<input id="eml" name="eml"  type="text" placeholder="Enter Your Report ID" >
+<form action="farmer-update-report.php" method="post" >
+<label for="rid">Report ID</label>
+<input id="rid" name="eml"  type="text" value="">
 <input type="submit" name="submit" value="Update My Report"> 
 </form>
 
-<form action="delete my report.php" method="post" >
-<input type="text" id="eml" name="eml" placeholder="Enter Your Report ID">
+<form action="farmer-delete-report.php" method="post" >
+<label for="rid2">Report ID</label>
+<input type="text" id="rid2" name="eml" value="">
 <input type="submit" name="delete" value="Delete My Report"> 
 </form>
 
 </div>
+<script>
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        var sesemail = queries[0];
+        var sesname = queries[1];
+        
+        console.log(sesname)
+
+        document.getElementById('rid').value = sesname;
+        document.getElementById('rid2').value = sesname;
+
+    </script> 
 </body>
 </html>

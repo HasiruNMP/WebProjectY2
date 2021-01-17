@@ -35,7 +35,7 @@ if(!$conn)
 }
 else
 {
-  echo "Server connected";
+  //echo "Server connected";
 }
 
 if(!mysqli_select_db($conn,$dbname))
@@ -45,7 +45,7 @@ if(!mysqli_select_db($conn,$dbname))
 
 else
 {
-  echo "Database Selected";
+  //echo "Database Selected";
 }
 
 
@@ -76,14 +76,14 @@ $temp_name=$_FILES['image3']['tmp_name'];
 $path = "images/";
 move_uploaded_file($temp_name,$path.$img3);
 
-echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>" . "<br>". $img2 . "<br>" . "<br>". $img3 . "<br>";
+//echo  "<br>" . $firstname . "<br>". $lastname . "<br>" . $email . "<br>" . $cropname . "<br>". $croptype . "<br>" . $quantity ."<br>" . $descrip .  "<br>"  . $latitude . "<br>"   . $longitude . "<br>". $img . "<br>" . "<br>". $img2 . "<br>" . "<br>". $img3 . "<br>";
 
 
 if(isset($_REQUEST["submit"]))
 {
 
 
-$sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$lastname."', crop_name='".$cropname."',  crop_type='".$croptype."', quantity='".$quantity."', photo1='".$img."', photo2='".$img2."', photo3='".$img3."', lat='".$latitude."', longt='".$longitude."', description='".$descrip."' where email='$eml'";
+$sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$lastname."', crop_name='".$cropname."',  crop_type='".$croptype."', quantity='".$quantity."', photo1='".$img."', photo2='".$img2."', photo3='".$img3."', lat='".$latitude."', longt='".$longitude."', description='".$descrip."' where report_id='$eml'";
 }
 
  if(!mysqli_query($conn,$sql))
@@ -92,7 +92,8 @@ $sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$la
   echo "Not Updated";
  }
  else
-  echo "Record Updated Successfully!";
+ echo "<center><h2>Report Updated</h2><br><h3>Redirecting to Your Reports...</h3></center>";
+ header( "refresh:2;url=farmer-view-reports.php" );
 
 
 
