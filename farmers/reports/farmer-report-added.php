@@ -51,7 +51,7 @@ if(!$conn)
 }
 else
 {
-	echo "Server connected";
+	//echo "Server connected";
 }
 
 if(!mysqli_select_db($conn,$dbname))
