@@ -50,7 +50,7 @@ else
 
 
 
-$eml= $_POST["eml"];
+$reportid= $_POST["rid"];
 $firstname = $_POST["fname"];
 $lastname = $_POST["lname"];
 $email = $_POST["email"];
@@ -83,7 +83,7 @@ if(isset($_REQUEST["submit"]))
 {
 
 
-$sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$lastname."', crop_name='".$cropname."',  crop_type='".$croptype."', quantity='".$quantity."', photo1='".$img."', photo2='".$img2."', photo3='".$img3."', lat='".$latitude."', longt='".$longitude."', description='".$descrip."' where report_id='$eml'";
+$sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$lastname."', crop_name='".$cropname."',  crop_type='".$croptype."', quantity='".$quantity."', photo1='".$img."', photo2='".$img2."', photo3='".$img3."', lat='".$latitude."', longt='".$longitude."', description='".$descrip."' where report_id='$reportid'";
 }
 
  if(!mysqli_query($conn,$sql))

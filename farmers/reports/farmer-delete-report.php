@@ -77,13 +77,13 @@ else
 	//echo "Database Selected";
 }
 
-$email=$_POST["eml"];
+$rid=$_POST["rid2"];
 
 if(isset($_REQUEST["delete"]))
 {
 
 
-$sql="DELETE FROM reports WHERE email='$email'";
+$sql="DELETE FROM reports WHERE report_id='$rid'";
 }
 
  if(!mysqli_query($conn,$sql))

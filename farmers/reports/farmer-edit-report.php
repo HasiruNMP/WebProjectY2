@@ -59,7 +59,7 @@ else
 
 <form action="farmer-delete-report.php" method="post" >
 <label for="rid2">Report ID</label>
-<input type="text" id="rid2" name="eml" value="">
+<input type="text" id="rid2" name="rid2" value="">
 <input type="submit" name="delete" value="Delete My Report"> 
 </form>
 
