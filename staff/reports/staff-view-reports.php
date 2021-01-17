@@ -65,11 +65,12 @@ else
       }
   
       </style>
-    <script>
-      // The following example creates a marker in Stockholm, Sweden using a DROP
-      // animation. Clicking on the marker will toggle the animation between a BOUNCE
-      // animation and no animation.
-    function initMap(rlan,rlng) {
+   
+
+
+      <script>
+      
+    function initMap(rlan,rlng,qu) {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
     center: {
@@ -80,17 +81,31 @@ else
   });
 
 
+    if(qu=="good"){
+            const image =
+    "goodmark.png";
+  const beachMarker = new google.maps.Marker({
+    position: { lat: parseFloat(rlan),
+        lng: parseFloat(rlng) },
+    map,
+    icon: image,
+  });
+}
 
-  //google.maps.event.addDomListener(document.getElementById('report'), 'click', function(evt) {
-    var marker = new google.maps.Marker({
+else if(qu=="bad")
+{
+              const image =
+    "badmark.png";
+  const beachMarker = new google.maps.Marker({
+    position: { lat: parseFloat(rlan),
+        lng: parseFloat(rlng) },
+    map,
+    icon: image,
+  });
+}
 
-      position: {
-        lat: parseFloat(rlan),
-        lng: parseFloat(rlng)
-      },
-      map: map
-    });
-  //});
+
+
     //marker.setMap(map);
 
 
@@ -98,7 +113,17 @@ google.maps.event.addDomListener(window, 'load', initMap);
           
        
 }
+   
+    
+
+
+
     </script>
+
+
+
+
+
 
 <nav class="grey darken-3">
         <div class="nav-wrapper">
@@ -183,7 +208,7 @@ while($row = mysqli_fetch_array($result)) {
           </table>
         </div>
         <div class="card-action">
-          <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>)">Locate</a>
+          <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>,'<?php echo $row['quality']; ?>')">Locate</a>
           <a href="../staff/dm/staff.php" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
           <!-- <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a> -->
            <form action="staff-quality-submit-report.php" method="post">
@@ -219,6 +244,7 @@ while($row = mysqli_fetch_array($result)) {
 
 <input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
 <input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
+
 
 
 
