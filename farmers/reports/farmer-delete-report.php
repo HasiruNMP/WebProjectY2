@@ -92,7 +92,7 @@ $sql="DELETE FROM reports WHERE report_id='$rid'";
  	echo "Not Deleted";
  }
  else
- 	echo "Record Deleted Successfully!";
+ 	echo "<div class='container'><h4 class='center-align'>Report Deleted Succesfully</h4></div>";
 ?>
 
 	
