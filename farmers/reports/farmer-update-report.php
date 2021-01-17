@@ -102,7 +102,7 @@ while($row = mysqli_fetch_array($result)) {
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 80%; width:90%;
+        height: 100%; width:100%;
       }
 
       /* Optional: Makes the sample page fill the window. */
