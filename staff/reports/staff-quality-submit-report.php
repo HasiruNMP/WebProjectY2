@@ -82,7 +82,7 @@ if(isset($_REQUEST["submit"]))
 {
 
 
-$sql="UPDATE reports SET quality='".$quality."',bought='".$quality."' where report_id='$reportid'";
+$sql="UPDATE reports SET quality='".$quality."',bought='".$decision."' where report_id='$reportid'";
 }
 
  if(!mysqli_query($conn,$sql))
