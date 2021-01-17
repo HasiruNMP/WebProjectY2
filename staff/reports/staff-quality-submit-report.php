@@ -67,13 +67,9 @@ else
   #echo "Database Selected";
 }
 
-
-
 $reportid= $_POST["rpid"];
 $quality = $_POST["quality"];
 $decision= $_POST["decision"];
-
-
 
 #echo  "<br>" . $reportid . "<br>". $quality . "<br>" . "<br>". $decision . "<br>";
 
@@ -91,7 +87,8 @@ $sql="UPDATE reports SET quality='".$quality."',bought='".$decision."' where rep
   echo "Not Updated";
  }
  else
-  echo "Record Updated Successfully!";
+ echo "<center><h2>Process Completed</h2><br><h3>Redirecting to Reports...</h3></center>";
+ header( "refresh:2;url=staff-view-reports.php" );
 
 
 

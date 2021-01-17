@@ -174,6 +174,7 @@ while($row = mysqli_fetch_array($result)) {
         <div class="card-content white-text">
           <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
           <p>Quality: <?php echo $row["quality"]; ?></p>
+          <p>Status: <span class="chip"><?php echo $row["bought"]; ?></span></p>
           <p>Description: <?php echo $row["description"]; ?></p>
           <br>
           <table>
@@ -221,11 +222,6 @@ else{
       window.location.href = 'farmer-edit-report.php' + queryString;
     }
   </script>
-
-
-
-
-
 
 
 

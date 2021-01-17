@@ -12,6 +12,43 @@ else
 	exit;
 }
 ?>
+<?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "dD4aW06XoB";
+
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  if(!$conn){
+    //echo "Server Not connected";
+  }
+  else{
+    //alert("Message");
+  }
+
+  if(!mysqli_select_db($conn,$dbname)){
+    //echo "Database Not Selected";
+  }
+
+  else{
+    //echo "Database Selected";
+  }
+
+  $user = array();
+  $result = mysqli_query($conn,"SELECT * FROM farmers WHERE email = '$email'");
+  if (mysqli_num_rows($result) > 0) {
+
+    while($row = mysqli_fetch_array($result)) {
+      $user[] = $row;
+    }
+
+  }
+  else{
+      echo "No result found";
+  }
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -221,7 +258,7 @@ else
 
 
 
-<script>initChat('<?php echo $email; ?>')</script>
+<script>initChat('<?php echo $email; ?>','<?php echo $user[0]['fname'] ?><?php echo $user[0]['lname'] ?>')</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
 </body>

@@ -92,7 +92,8 @@ $sql="DELETE FROM reports WHERE report_id='$rid'";
  	echo "Not Deleted";
  }
  else
- 	echo "Record Deleted Successfully!";
+ echo "<center><h2>Report Deleted</h2><br><h3>Redirecting to Your Reports...</h3></center>";
+ header( "refresh:2;url=farmer-view-reports.php" );
 ?>
 
 	

@@ -4,14 +4,18 @@ function test(abc){
 
 var selected = ""
 
-function initChat(email){
+function initChat(email,name){
     var docRef = db.collection("messages").doc(email);
     docRef.get().then(function(doc) {
         if (doc.exists) {
+            selected = email;
             loadmessage(email);
+            
         } else {
             db.collection("messages").doc(email).set({
-                messageCount: 0
+                messageCount: 0,
+                name: name,
+                ltime: firebase.firestore.Timestamp.fromDate(new Date())
             })  
         } 
     });  
@@ -80,7 +84,7 @@ function sendmessage(){
         console.log(selected)
 
         db.collection("messages").doc(selected).collection("messages").doc().set({
-            sender: "f",
+            sender: "s",
             text: message,
             order: mcount,
             status: "unread",

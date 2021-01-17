@@ -1,33 +1,44 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Login</title>
-
+<title>Staff Login</title>
+<link rel="icon" href="../../img/logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
 <body>
+<nav class="grey darken-3">
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="../../index.php">Welcome</a></li>
+        <li><a href="../../public/reports.php">Reports</a></li>
+        <li><a href="../../public/graphs.php">Graphs</a></li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <li><a href="../../portal.php" class="waves-effect green waves-light btn">Login Portal<i class="material-icons  right">account_circle</i></a></li>
+    </ul>
+    </div>
+</nav>
 
+<div class="container" style="width: 400px; text-align: center;">
+<br><br><br><br><br><br>
     <form id="login-form" method="post" action="#" >
-        <p id="l1">Cultivation Report Platform</p>
-        <table>
+        <h4 id="l1" class="center-align">Staff Login</h4>
+ 
+            <br><br><br>
+            <input type="text" name="username" id="user_id" placeholder="Username">    
+            <br><br><br>
+            <input type="password" name="password" id="user_pass" placeholder="Password"></input>    
+            <br><br><br><br><br>
+            <input type="submit" class="center-align btn green" name="submit" class="submit" value="login" id="sub">
+            <br><br>
 
-            <tr>
-                <td><p align="left" id="sid">username</p>
-                    <input type="text" name="username" id="user_id" placeholder="                username"></td>
 
-            </tr>
-
-            <tr>
-                <td><p align="left" id="sid">Password</p>
-                    <input type="password" name="password" id="user_pass" placeholder="                  Password"></input></td>
-            </tr>
-
-            <tr>
-                <input type="submit" name="submit" class="submit" value="login" id="sub">
-            </tr>
-
-        </table>
+        
     </form>
+</div>
     
 
 <?php

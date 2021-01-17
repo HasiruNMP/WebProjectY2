@@ -1,4 +1,18 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Created</title>
+    <link rel="icon" href="../../img/logo.png">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 $servername = "localhost";
 $username = "root";
@@ -16,7 +30,7 @@ if(!$conn)
 }
 else
 {
-    echo "Server connected";
+    //echo "Server connected";
 }
 
 if(!mysqli_select_db($conn,$dbname))
@@ -26,7 +40,7 @@ if(!mysqli_select_db($conn,$dbname))
 
 else
 {
-    echo "Database Selected";
+    //echo "Database Selected";
 }
 
 
@@ -36,7 +50,7 @@ $cmpw = $_POST["confirm_password"];
 
 
 
-echo  "<br>" . $name . "<br>". $usname . "<br>" . $cmpw . "<br>" ;
+//echo  "<br>" . $name . "<br>". $usname . "<br>" . $cmpw . "<br>" ;
 
 
 if(isset($_REQUEST["submit"]))
@@ -50,5 +64,7 @@ $sql="INSERT INTO staff (name, username, password) VALUES ('$name', '$usname', '
  {
     echo "Not Inserted";
  }
- else
-    echo "Record Inserted Successfully!";
+ else{
+    echo "<center><h4>Account Created</h4><br><h5>Redirecting..</h5></center>";
+    header( "refresh:2;url=web-master.php" );
+ }

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="center-align">Welcome to the Cultivation Report Platform by Keels & DOA</h3>
+        <h3 class="center-align">Welcome to the Harvest Report Platform</h3>
         <div class="row">
             <h5 class="">Login as:</h5>
             <div class="row">
@@ -20,12 +20,9 @@
             </div>
 
             <div class="row">
-            <a href="webmaster\login-webmaster.php" class="waves-effect green waves-light btn-large"><i class="material-icons left"></i>web master</a>
+            <a href="staff/webmaster\login-webmaster.php" class="waves-effect green waves-light btn-large"><i class="material-icons left"></i>web master</a>
             </div>
 
-            <div class="row">
-            <a href="webmaster\login-webmaster.php" class="waves-effect green waves-light btn-large"><i class="material-icons left"></i>public</a>
-            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

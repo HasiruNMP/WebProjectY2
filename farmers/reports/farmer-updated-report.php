@@ -108,15 +108,9 @@ $sql="UPDATE reports SET email='".$email."',fname='".$firstname."', lname='".$la
  echo "<center><h2>Report Updated</h2><br><h3>Redirecting to Your Reports...</h3></center>";
  header( "refresh:2;url=farmer-view-reports.php" );
 
-
-
 ?>
 
 <br>
-<button onclick="window.location.href='Report View,Update,Delete.php';">
-      View Report Details
-    </button>
-
 
 
 </body>

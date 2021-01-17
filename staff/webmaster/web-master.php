@@ -26,12 +26,10 @@
 <nav class="grey darken-3">
     <div class="nav-wrapper">
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="sass.html">Create Staff Account</a></li>
-        <li><a href="badges.html">Messages</a></li>
-        <li><a href="badges.html">Graphs</a></li>
+        <li><a href="#">Create Staff Account</a></li>
     </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn">Log Out<i class="material-icons  right">account_circle</i></a></li>
+        <li><a href="logout.php" class="waves-effect green waves-light btn">Log Out<i class="material-icons  right">account_circle</i></a></li>
     </ul>
     </div>
 </nav>

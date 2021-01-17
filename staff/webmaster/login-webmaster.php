@@ -16,7 +16,7 @@
         <li><a href="badges.html">Graphs</a></li>
     </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn">Login Portal<i class="material-icons  right">account_circle</i></a></li>
+        <li><a href="../../portal.php" class="waves-effect green waves-light btn">Login Portal<i class="material-icons  right">account_circle</i></a></li>
     </ul>
     </div>
 </nav>
@@ -26,11 +26,11 @@
         <h4 id="l1" class="center-align">Login for WebMaster</h4>
  
             <br><br><br>
-            <input type="text" name="email" id="user_id" placeholder="Email">    
+            <input type="text" name="email" id="user_id" placeholder="Username">    
             <br><br><br>
             <input type="password" name="password" id="user_pass" placeholder="Password"></input>    
             <br><br><br><br><br>
-            <input type="submit" class="center-align btn" name="submit" class="submit" value="login" id="sub">
+            <input type="submit" class="center-align btn green" name="submit" class="submit" value="login" id="sub">
 
         
     </form>
@@ -60,7 +60,7 @@ if (isset($_POST["email"]) AND isset($_POST["password"])) {
 $email= $_POST['email'];
 $password= $_POST['password'];
 
-$sql = "SELECT `email`, `password` FROM `webmaster` WHERE `email` = '$email' AND `password` = '$password';";
+$sql = "SELECT `username`, `password` FROM `webmaster` WHERE `username` = '$email' AND `password` = '$password';";
 //echo $sql;
 $result = $conn->query($sql);
 
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
 $row = $result->fetch_assoc();
 //echo $row['email'];
 //echo $row['password'];
-$ses_email = $row['email'];
+$ses_email = $row['username'];
 $ses_password = $row['password'];
 }
 
@@ -78,10 +78,10 @@ $ses_password = $row['password'];
 
 if ($email = $ses_email && $password = $ses_password)
 {
-   $_SESSION['email'] = $ses_email;
-   $_SESSION['password'] = $ses_password;
+   $_SESSION['wmemail'] = $ses_email;
+   $_SESSION['wmpassword'] = $ses_password;
    echo 'You have entered valid username and password';
-   header("Location: ../index.php");
+   header("Location:web-master.php");
 }
 else
 {
