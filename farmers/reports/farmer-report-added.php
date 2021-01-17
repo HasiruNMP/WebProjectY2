@@ -106,7 +106,8 @@ $sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, quantity, 
  	echo "Not Inserted";
  }
  else
- 	echo "<div class='container'><h4 class='center-align'>Report Added Succesfully</h4></div>";
+ echo "<center><h2>Report Added Succesfully</h2><br><h3>Redirecting to Your Reports...</h3></center>";
+ header( "refresh:2;url=farmer-view-reports.php" );
 
 
 
