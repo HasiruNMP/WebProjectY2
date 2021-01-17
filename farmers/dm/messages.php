@@ -21,7 +21,7 @@ else
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>Messages</title>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
     <script>  
@@ -41,7 +41,7 @@ else
         // db variable
         var db = firebase.firestore();
     </script>
-    <script src="app-staff.js"></script>
+    <script src="app-farmer.js"></script>
    
     <style>
         .row{
@@ -156,19 +156,20 @@ else
     </style>
 </head>
 <body>
-    <nav class="grey darken-3">
-        <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="sass.html">My Reports</a></li>
-            <li><a href="badges.html">Add New Report</a></li>
-            <li><a href="badges.html">Messages</a></li>
-            <li><a href="badges.html">Graphs</a></li>
-        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn">Log Out<i class="material-icons  right">account_circle</i></a></li>
-        </ul>
-        </div>
-    </nav>
+<nav class="grey darken-3">
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="../reports/farmer-view-reports.php">My Reports</a></li>
+        <li><a href="../reports/farmer-add-report.php">Add New Report</a></li>
+        <li><a href="messages.php"><b>Messages</b></a></li>
+        <li><a href="../reports/all-reports.php">All Reports</a></li>
+        <li><a href="../graphs/graphs.php">Graphs</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
+      </ul>
+  </div>
+</nav>
 
     <div class="container">
         <div class="row card horizontal grey darken-2" id="all">

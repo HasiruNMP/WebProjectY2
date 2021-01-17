@@ -3,7 +3,7 @@
 <html>
   <head>
   <link rel="icon" href="../../img/logo.png">
-    <title>Reports</title>
+    <title>Reports by Other Farmers</title>
     <!-- css -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -91,16 +91,19 @@ google.maps.event.addDomListener(window, 'load', initMap);
     </script>
 
 <nav class="grey darken-3">
-        <div class="nav-wrapper">
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="reports-public.php">Reports</a></li>
-            <li><a href="graphs-public.php">Graphs</a></li>
-        </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href = "../index.php" class="waves-effect waves-light btn green">Log In <i class="material-icons  right">account_circle</i></a></li>
-        </ul>
-        </div>
-        </nav>
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="farmer-add-report.php">My Reports</a></li>
+        <li><a href="farmer-add-report.php">Add New Report</a></li>
+        <li><a href="../dm/messages.php">Messages</a></li>
+        <li><a href="all-reports.php"><b> All Reports</b></a></li>
+        <li><a href="../graphs/graphs.php">Graphs</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
+      </ul>
+  </div>
+</nav>
   </head>
 
 
@@ -111,7 +114,7 @@ google.maps.event.addDomListener(window, 'load', initMap);
     <div id ="leftpanel"> 
 
     
-    	<?php
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";

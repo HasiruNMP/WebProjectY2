@@ -1,7 +1,7 @@
 <?php
    session_start();
    unset($_SESSION["fpassword"]);
-   unset($_SESSION["spassword"]);
+   unset($_SESSION["femail"]);
    session_destroy();
 
    //echo 'You have cleaned session';

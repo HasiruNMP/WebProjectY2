@@ -8,7 +8,7 @@ if ( isset( $_SESSION['femail'] ) )
 else 
 {
 	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
-	header("Location: ../index.php");
+	header("Location: ../../index.php");
 	exit;
 }
 ?>

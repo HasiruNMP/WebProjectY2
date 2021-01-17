@@ -16,7 +16,20 @@ else
     <title>Adding Updated Details</title>
 </head>
 <body>
-
+<nav class="grey darken-3">
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="farmer-view-reports.php">My Reports</a></li>
+        <li><a href="farmer-add-report.php">Add New Report</a></li>
+        <li><a href="../dm/messages.php">Messages</a></li>
+        <li><a href="all-reports.php">All Reports</a></li>
+        <li><a href="../graphs/graphs.php">Graphs</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
+      </ul>
+  </div>
+</nav>
 
 <?php
 $servername = "localhost";

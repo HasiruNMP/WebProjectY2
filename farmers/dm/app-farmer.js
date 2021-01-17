@@ -2,13 +2,15 @@ function test(abc){
     console.log(abc)
    }
 
-var selected = ""
+var selected = '';
 
 function initChat(email){
     var docRef = db.collection("messages").doc(email);
     docRef.get().then(function(doc) {
         if (doc.exists) {
+            selected = email;
             loadmessage(email);
+            
         } else {
             db.collection("messages").doc(email).set({
                 messageCount: 0
@@ -34,7 +36,8 @@ function loadmessage(email){
     const chat_main = document.getElementById('chatcont')
     chat_main.innerHTML = ""
     selected = email;
-    console.log(selected)
+    //console.log(selected)
+    //console.log("hdcbsjdhcb"); 
 
     db.collection("messages").doc(email).collection("messages").orderBy("order","asc").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
@@ -42,8 +45,9 @@ function loadmessage(email){
             var sender = doc.data().sender;
             var textcont = document.createElement('div')
             textcont.setAttribute("class","msgbox row")
-                            
-            if(sender == "s"){
+                          
+            if(sender == "f"){
+                
                 textcont.innerHTML = "<div class='msg'><p class='msgtext grey lighten-2  card horizontal'>" + doc.data().text + "</p></div>";
             }
             else

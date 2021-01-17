@@ -7,7 +7,7 @@ if ( isset( $_SESSION['femail'] ) )
 else 
 {
 	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
-	header("Location: ../index.php");
+	header("Location: ../../index.php");
 	exit;
 }
 
@@ -17,7 +17,7 @@ else
 <html>
   <head>
   <link rel="icon" href="../../img/logo.png">
-    <title>Reports</title>
+    <title>My Reports</title>
     <!-- css -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -104,14 +104,14 @@ google.maps.event.addDomListener(window, 'load', initMap);
 <nav class="grey darken-3">
   <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#">My Reports</a></li>
+        <li><a href="#"><b>My Reports</b> </a></li>
         <li><a href="farmer-add-report.php">Add New Report</a></li>
         <li><a href="../dm/messages.php">Messages</a></li>
         <li><a href="all-reports.php">All Reports</a></li>
-        <li><a href="../public/graphs-public.php">Graphs</a></li>
+        <li><a href="../graphs/graphs.php">Graphs</a></li>
       </ul>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href = "../staff/login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
+        <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
       </ul>
   </div>
 </nav>
