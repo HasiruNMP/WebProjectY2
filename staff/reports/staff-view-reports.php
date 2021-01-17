@@ -194,9 +194,11 @@ while($row = mysqli_fetch_array($result)) {
     <div class="col s12">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
-          <p>Quality: <?php echo $row["quality"]; ?></p>
+          <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> | <?php echo $row["date"]; ?> </b></span>
           <p><?php echo $row["fname"]; ?> <?php echo $row["lname"]; ?> | <?php echo $row["email"]; ?></p>
+          <p>Status: <span class="chip"><?php echo $row["bought"]; ?></span> </p>
+          <p>Quality: <?php echo $row["quality"]; ?></p> 
+          
           <p>Description: <?php echo $row["description"]; ?></p>
           <br>
           <table>
@@ -209,7 +211,7 @@ while($row = mysqli_fetch_array($result)) {
         </div>
         <div class="card-action">
           <a href="#" onclick="initMap(<?php echo $row['lat']; ?>,<?php echo $row['longt']; ?>,'<?php echo $row['quality']; ?>')">Locate</a>
-          <a href="../staff/dm/staff.php" onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
+          <a onclick="gotoChat('<?php echo $row['email']; ?>', '<?php echo $row['fname']; ?> <?php echo $row['lname']; ?>' )">Message</a>
           <!-- <a id="expand" onclick="reply_click()" class="waves-effect waves-light btn green darken-1 modal-trigger" href="#demo-modal">Expand</a> -->
            <form action="staff-quality-submit-report.php" method="post">
           <br>
@@ -233,7 +235,7 @@ while($row = mysqli_fetch_array($result)) {
         <label class="container">Ignore<input type="radio" name="decision" value="Ignore">
           <span class="checkmark"></span>
         </label>
-          <input type="submit" name="submit">
+          <input class="btn-small green" type="submit" name="submit">
         </label>
       </form>
 
@@ -270,7 +272,7 @@ else{
       var semail=email;
       var sname=name;
       var queryString = "?" + semail + "&" + sname;
-      window.location.href = '../staff/dm/staff.php' + queryString;
+      window.location.href = '../../staff/dm/newchat.php' + queryString;
     }
   </script>
 
@@ -279,12 +281,6 @@ else{
 
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.materialboxed');
-    var instances = M.Materialbox.init(elems, options);
-  });
-</script>
 
 
 

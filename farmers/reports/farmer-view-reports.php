@@ -172,9 +172,10 @@ while($row = mysqli_fetch_array($result)) {
     <div class="col s12">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> </b></span>
-          <p>Quality: <?php echo $row["quality"]; ?></p>
+          <span class="card-title"><b><?php echo $row["crop_name"]; ?> | <?php echo $row["quantity"]; ?> | <?php echo $row["date"]; ?> </b></span>
           <p>Status: <span class="chip"><?php echo $row["bought"]; ?></span></p>
+          <p>Quality: <?php echo $row["quality"]; ?></p>
+          
           <p>Description: <?php echo $row["description"]; ?></p>
           <br>
           <table>
@@ -196,9 +197,6 @@ while($row = mysqli_fetch_array($result)) {
 
 <input id="lat"  type="hidden" value="<?php echo $row["lat"]; ?>" />
 <input id="lng" type="hidden" value="<?php echo $row["longt"]; ?>" />
-
-
-
 
 <?php
 }
@@ -226,6 +224,8 @@ else{
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
 </body>
 </html>
 

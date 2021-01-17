@@ -48,11 +48,11 @@ function loadmessage(email){
             textcont.setAttribute("class","msgbox row")
                             
             if(sender == "s"){
-                textcont.innerHTML = "<div class='msg'><p class='msgtext green card horizontal'>" + doc.data().text + "</p></div>";
+                textcont.innerHTML = "<div class='msg'><p class='msgtext grey lighten-2 card horizontal'>" + doc.data().text + "</p></div>";
             }
             else
             {
-                textcont.innerHTML = "<div class='msg2'><p class='msgtext grey lighten-2 card horizontal'>" + doc.data().text + "</p></div>";
+                textcont.innerHTML = "<div class='msg2'><p class='msgtext green card horizontal'>" + doc.data().text + "</p></div>";
             }
             //textcont.innerText = doc.data().text;
             chat_main.append(textcont);

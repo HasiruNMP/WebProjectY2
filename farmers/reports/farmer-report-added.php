@@ -98,7 +98,7 @@ if(isset($_REQUEST["submit"]))
 {
 
 
-$sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, quantity, photo1, photo2, photo3, lat, longt, description, date) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$quantity', '$img', '$img2', '$img3','$latitude', '$longitude', '$descrip', '$date' );";
+$sql="INSERT INTO reports (email, fname, lname, crop_name, crop_type, quantity, photo1, photo2, photo3, lat, longt, description, date, bought, quality) VALUES ('$email', '$firstname', '$lastname', '$cropname', '$croptype', '$quantity', '$img', '$img2', '$img3','$latitude', '$longitude', '$descrip', '$date', 'Pending', 'Good' );";
 }
 
  if(!mysqli_query($conn,$sql))

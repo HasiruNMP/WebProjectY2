@@ -1,7 +1,10 @@
 <?php
 session_start();
 if ( isset( $_SESSION['spassword'] ) ) 
-{}
+{
+    //$email = $_SESSION['femail'];
+    //echo $email;
+}
 else 
 {
 	//$_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
@@ -9,6 +12,7 @@ else
 	exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +42,8 @@ else
         // db variable
         var db = firebase.firestore();
     </script>
-    <script src="app-staff.js"></script>
-    
+    <script src="newchat.js"></script>
+   
     <style>
         .row{
             padding: 5px;
@@ -71,7 +75,7 @@ else
             height: 50px;
         }
         #bottom{
-            margin-left: 35px;
+            margin-left: 70px;
             padding: 0px;
             border: 0px;
         }
@@ -108,19 +112,19 @@ else
             margin: 0 auto;
             padding: 0px;
             height: min-content;
-            width: 800px;
+            width: 1235px;
         }
         .msg{
             border-radius: 20px;
             width: max-content;
             height: auto;
-            float: left;
+            float: right;
         }
         .msg2{
             border-radius: 20px;
             width: max-content;
             height: auto;
-            float: right;
+            float: left;
         }
         .msgtext{
             margin: 10px;
@@ -147,6 +151,9 @@ else
             align-items: center;
             justify-content: center;
         }
+        #main{
+            margin:0 auto;
+        }
     </style>
 </head>
 <body>
@@ -154,8 +161,8 @@ else
         <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="../reports/staff-view-reports.php">Reports</a></li>
-            <li><a href="messages.php">Messages</a></li>
-            <li><a href="../graphs/graphs.php"><b>Graphs</b></a></li>
+            <li><a href="messages.php"><b>Messages</b></a></li>
+            <li><a href="../graphs/graphs.php">Graphs</a></li>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
@@ -164,17 +171,15 @@ else
         </nav>
 
     <div class="container">
+        <div class="row" style="text-align:center">
+        <a href="messages.php" class="waves-effect green waves-light btn">Go to all Messages</a>
+        </div>
         <div class="row card horizontal grey darken-2" id="all">
 
-            <div class="col s4">
-                <div class="col s12 grey card horizontal" id="list">
-                </div>
-            </div>
-
-            <div class="col s8" id="main">
+            <div class="col s12" id="main">
 
                 <div class="row grey  card horizontal" id="top">
-                    <h5 id="fname" class="center-align">Test</h5>
+                    <h5 id="fname" class="center-align"></h5>
                 </div>
 
                 <div class="row grey card horizontal" id="chat">
@@ -187,8 +192,19 @@ else
                     <div class="col s10 grey card horizontal" id="type">
                         <input type="text" id="mtext" placeholder="Type your message">
                     </div>
+                    <script>
+        var queryString = decodeURIComponent(window.location.search);
+        queryString = queryString.substring(1);
+        var queries = queryString.split("&");
+        var sesemail = queries[0];
+        var sesname = queries[1];
+        
+        console.log(sesname);
+        console.log(sesemail);
 
-                    <div class="col s1 grey card horizontal waves-effect waves-light" id="send" onclick="sendmessage()">
+
+    </script> 
+                    <div class="col s1 grey card horizontal waves-effect waves-light" id="send" onclick="sendmessage(sesemail)">
                         <i class="center-align valign-wrapper material-icons right">send</i>
                     </div>
 
@@ -197,7 +213,31 @@ else
         </div>
     </div>
 
-<script>loadlist()</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+<script>
+document.getElementById("fname").innerText = sesname;
+</script>
+
+<script>initChat(sesemail,sesname)</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>    
 </body>
 </html>
