@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2021 at 01:14 PM
+-- Generation Time: Jan 17, 2021 at 05:45 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.32
 
@@ -74,24 +74,25 @@ CREATE TABLE `reports` (
   `longt` float NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `bought` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `quality` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+  `quality` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `reports`
 --
 
-INSERT INTO `reports` (`report_id`, `email`, `fname`, `lname`, `crop_name`, `crop_type`, `quantity`, `photo1`, `photo2`, `photo3`, `lat`, `longt`, `description`, `bought`, `quality`) VALUES
-(1, 'hasirunawodya@gmail.com', 'Hasiru', 'Nawodya', 'Potatoes', 'Vegetables', '750 Kg', 'harvest-potatoes.jpg', 'When-to-Harvest-Potatoes-Everything-You-Need-to-Know-to-Get-it-Right-FI.jpg', 'shutterstock_1141480919.jpg', 8.60171, 81.2105, 'Fresh Potatoes', '', ''),
-(2, 'rakshithadilshan@gmail.com', 'Rakshitha', 'Dilshan', 'Carrots', 'Vegetables', '1500 Kg', 'Carrots.jfif', 'karote111.jpg', 'karotte.jpg', 6.94175, 80.8012, 'Colorful Organic carrots', '', ''),
-(3, 'thusharaariyathilake@gmail.com', 'Thushara ', 'Ariyathilake', 'Beetroot', 'Vegetables', '500 Kg', 'beet1111.jpg', 'beetroot2.jpg', 'beets jpg.jpg', 7.2906, 80.6337, 'Sugar Beet', '', ''),
-(5, 'ravindujayathilake@gmail.com', 'Ravindu', 'Jayathilake', 'Onion', 'Vegetables', '200 Kg', 'onion1.jfif', 'onion 2.jfif', 'onion3.jfif', 6.93663, 79.9714, 'Fresh Red Onions', '', ''),
-(6, 'dilanlasitha@gmail.com', 'Dilan', 'Lasitha', 'Leeks', 'Vegetables', '420 Kg', 'leeks1.jpg', 'leeks2.jpg', 'leeks3.jpg', 7.21159, 81.0965, 'Fresh Leeks', '', ''),
-(7, 'hasirunawodya@gmail.com', 'Hasiru ', 'Nawodya', 'Pineapple', 'Fruits', '185 Kg', 'pineapple1.jpg', 'pineapple2.jpg', 'pineapple3.jpg', 6.08011, 80.6591, 'Fresh Pineapple', '', ''),
-(8, 'thusharaariyathilake@gmail.com', 'Thushara ', 'Ariyathilake', 'Banana', 'Fruits', '370 Kg', 'banana1.jfif', 'banana2.jfif', 'banana3.jfif', 7.33861, 80.9993, 'Kolikuttu Banana', '', ''),
-(9, 'rakshithadilshan@gmail.com', 'Rakshitha', 'Dilshan', 'Orange', 'Fruits', '100', 'orange1.jfif', 'orange2.jpg', 'orange3.jfif', 6.41457, 81.333, 'Fresh Colorful Oranges', '', ''),
-(10, 'dilanlasitha@gmail.com', 'Dilan', 'Lasitha', 'Tomato', 'Vegetables', '355 Kg', 'tomato1.jfif', 'tomato2.jpg', 'tomato3.jpg', 6.90562, 80.6763, 'Cherry Tomatoes', '', ''),
-(11, 'rakshithadilshan@gmail.com', 'Rakshitha', 'Dilshan', 'Pumpkin', 'Vegetables', '815 Kg', 'pumpkin1.jpg', 'pumpkin3.jfif', 'pumpkin12.jfif', 7.63374, 79.8358, 'Fresh Pumpkins', '', '');
+INSERT INTO `reports` (`report_id`, `email`, `fname`, `lname`, `crop_name`, `crop_type`, `quantity`, `photo1`, `photo2`, `photo3`, `lat`, `longt`, `description`, `bought`, `quality`, `date`) VALUES
+(1, 'hasirunawodya@gmail.com', 'Hasiru', 'Nawodya', 'Potatoes', 'Vegetables', '750 Kg', 'harvest-potatoes.jpg', 'When-to-Harvest-Potatoes-Everything-You-Need-to-Know-to-Get-it-Right-FI.jpg', 'shutterstock_1141480919.jpg', 8.60171, 81.2105, 'Fresh Potatoes', 'Buy', 'Good', '2021-01-07'),
+(2, 'rakshithadilshan@gmail.com', 'Rakshitha', 'Dilshan', 'Carrots', 'Vegetables', '1500 Kg', 'Carrots.jfif', 'karote111.jpg', 'karotte.jpg', 6.94175, 80.8012, 'Colorful Organic carrots', 'Ignore', 'Bad', '2021-01-08'),
+(3, 'thusharaariyathilake@gmail.com', 'Thushara ', 'Ariyathilake', 'Beetroot', 'Vegetables', '500 Kg', 'beet1111.jpg', 'beetroot2.jpg', 'beets jpg.jpg', 7.2906, 80.6337, 'Sugar Beet', 'Buy', 'Good', '2021-01-09'),
+(5, 'ravindujayathilake@gmail.com', 'Ravindu', 'Jayathilake', 'Onion', 'Vegetables', '200 Kg', 'onion1.jfif', 'onion 2.jfif', 'onion3.jfif', 6.93663, 79.9714, 'Fresh Red Onions', 'Ignore', 'Bad', '2021-01-10'),
+(6, 'dilanlasitha@gmail.com', 'Dilan', 'Lasitha', 'Leeks', 'Vegetables', '420 Kg', 'leeks1.jpg', 'leeks2.jpg', 'leeks3.jpg', 7.21159, 81.0965, 'Fresh Leeks', 'Buy', 'Good', '2021-01-11'),
+(7, 'hasirunawodya@gmail.com', 'Hasiru ', 'Nawodya', 'Pineapple', 'Fruits', '185 Kg', 'pineapple1.jpg', 'pineapple2.jpg', 'pineapple3.jpg', 6.08011, 80.6591, 'Fresh Pineapple', 'Buy', 'Good', '2021-01-12'),
+(8, 'thusharaariyathilake@gmail.com', 'Thushara ', 'Ariyathilake', 'Banana', 'Fruits', '370 Kg', 'banana1.jfif', 'banana2.jfif', 'banana3.jfif', 7.33861, 80.9993, 'Kolikuttu Banana', 'Buy', 'Good', '2021-01-13'),
+(9, 'rakshithadilshan@gmail.com', 'Rakshitha', 'Dilshan', 'Orange', 'Fruits', '100', 'orange1.jfif', 'orange2.jpg', 'orange3.jfif', 6.41457, 81.333, 'Fresh Colorful Oranges', 'Ignore', 'Bad', '2021-01-14'),
+(10, 'dilanlasitha@gmail.com', 'Dilan', 'Lasitha', 'Tomato', 'Vegetables', '355 Kg', 'tomato1.jfif', 'tomato2.jpg', 'tomato3.jpg', 6.90562, 80.6763, 'Cherry Tomatoes', 'Buy', 'Good', '2021-01-15'),
+(11, 'rakshithadilshan@gmail.com', 'Rakshitha', 'Dilshan', 'Pumpkin', 'Vegetables', '815 Kg', 'pumpkin1.jpg', 'pumpkin3.jfif', 'pumpkin12.jfif', 7.63374, 79.8358, 'Fresh Pumpkins', 'Ignore', 'Bad', '2021-01-16');
 
 -- --------------------------------------------------------
 
@@ -110,6 +111,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`name`, `username`, `password`) VALUES
+('Dilshan', 'dlsha', '123'),
 ('testacc', 'test', 'test');
 
 -- --------------------------------------------------------
@@ -258,7 +260,7 @@ ALTER TABLE `webmaster`
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
