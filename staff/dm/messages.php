@@ -114,13 +114,13 @@ else
             border-radius: 20px;
             width: max-content;
             height: auto;
-            float: left;
+            float: right;
         }
         .msg2{
             border-radius: 20px;
             width: max-content;
             height: auto;
-            float: right;
+            float: left;
         }
         .msgtext{
             margin: 10px;
@@ -154,8 +154,8 @@ else
         <div class="nav-wrapper">
         <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><a href="../reports/staff-view-reports.php">Reports</a></li>
-            <li><a href="messages.php">Messages</a></li>
-            <li><a href="../graphs/graphs.php"><b>Graphs</b></a></li>
+            <li><a href="messages.php"><b>Messages</b></a></li>
+            <li><a href="../graphs/graphs.php">Graphs</a></li>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href = "../login/logout.php" class="waves-effect waves-light btn grey">Log out <i class="material-icons  right">account_circle</i></a></li>
@@ -174,7 +174,7 @@ else
             <div class="col s8" id="main">
 
                 <div class="row grey  card horizontal" id="top">
-                    <h5 id="fname" class="center-align">Test</h5>
+                    <h5 id="fname" class="center-align"></h5>
                 </div>
 
                 <div class="row grey card horizontal" id="chat">

@@ -11,9 +11,6 @@
         <h3 class="center-align">Welcome to the Harvest Report Platform</h3>
         <div class="row">
             <h5 class="">Login as:</h5>
-            <div class="row">
-            <a href="farmers\login\login-farmers.php" class="waves-effect green waves-light btn-large"><i class="material-icons left"></i>farmers</a>
-            </div>
 
             <div class="row">
             <a href="staff\login\login-staff.php" class="waves-effect green waves-light btn-large"><i class="material-icons left"></i>staff</a>

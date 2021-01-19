@@ -89,8 +89,9 @@ function sendmessage(){
             order: mcount,
             status: "unread",
             timestamp: firebase.firestore.Timestamp.fromDate(new Date())
-        })      
-    });      
+        })       
+    });  
+    document.getElementById("mtext").value = ""      
 }
 
 function newmessage(mcount,email){
@@ -105,11 +106,11 @@ function newmessage(mcount,email){
             textcont.setAttribute("class","msgbox row")
                             
             if(sender == "s"){
-                textcont.innerHTML = "<div class='msg'><p class='msgtext green card horizontal'>" + doc.data().text + "</p></div>";
+                textcont.innerHTML = "<div class='msg'><p class='msgtext grey lighten-2 card horizontal'>" + doc.data().text + "</p></div>";
             }
             else
             {
-                textcont.innerHTML = "<div class='msg2'><p class='msgtext grey lighten-2 card horizontal'>" + doc.data().text + "</p></div>";
+                textcont.innerHTML = "<div class='msg2'><p class='msgtext green card horizontal'>" + doc.data().text + "</p></div>";
             }
             //textcont.innerText = doc.data().text;
             chat_main.append(textcont);

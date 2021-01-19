@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html>
 <head>
-<title>Login - Farmer</title>
+<title>Login - WebMaster</title>
 
 <link rel="icon" href="../../img/logo.png">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
